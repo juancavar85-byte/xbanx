@@ -1,0 +1,208 @@
+@font-face {
+    font-family: 'Pluto';
+    src: url('../fonts/pluto/PlutoBold.eot');
+    src: url('../fonts/pluto/PlutoBold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/pluto/PlutoBold.woff2') format('woff2'),
+        url('../fonts/pluto/PlutoBold.woff') format('woff'),
+        url('../fonts/pluto/PlutoBold.ttf') format('truetype'),
+        url('../fonts/pluto/PlutoBold.svg#PlutoBold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pluto';
+    src: url('../fonts/pluto/PlutoBlack.eot');
+    src: url('../fonts/pluto/PlutoBlack.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/pluto/PlutoBlack.woff2') format('woff2'),
+        url('../fonts/pluto/PlutoBlack.woff') format('woff'),
+        url('../fonts/pluto/PlutoBlack.ttf') format('truetype'),
+        url('../fonts/pluto/PlutoBlack.svg#PlutoBlack') format('svg');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pluto Cond';
+    src: url('../fonts/pluto/PlutoCondBlack.eot');
+    src: url('../fonts/pluto/PlutoCondBlack.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/pluto/PlutoCondBlack.woff2') format('woff2'),
+        url('../fonts/pluto/PlutoCondBlack.woff') format('woff'),
+        url('../fonts/pluto/PlutoCondBlack.ttf') format('truetype'),
+        url('../fonts/pluto/PlutoCondBlack.svg#PlutoCondBlack') format('svg');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pluto Cond';
+    src: url('../fonts/pluto/PlutoCondMedium.eot');
+    src: url('../fonts/pluto/PlutoCondMedium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/pluto/PlutoCondMedium.woff2') format('woff2'),
+        url('../fonts/pluto/PlutoCondMedium.woff') format('woff'),
+        url('../fonts/pluto/PlutoCondMedium.ttf') format('truetype'),
+        url('../fonts/pluto/PlutoCondMedium.svg#PlutoCondMedium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pluto Cond';
+    src: url('../fonts/pluto/PlutoCondThin.eot');
+    src: url('../fonts/pluto/PlutoCondThin.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/pluto/PlutoCondThin.woff2') format('woff2'),
+        url('../fonts/pluto/PlutoCondThin.woff') format('woff'),
+        url('../fonts/pluto/PlutoCondThin.ttf') format('truetype'),
+        url('../fonts/pluto/PlutoCondThin.svg#PlutoCondThin') format('svg');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pluto Cond';
+    src: url('../fonts/pluto/PlutoCondRegular.eot');
+    src: url('../fonts/pluto/PlutoCondRegular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/pluto/PlutoCondRegular.woff2') format('woff2'),
+        url('../fonts/pluto/PlutoCondRegular.woff') format('woff'),
+        url('../fonts/pluto/PlutoCondRegular.ttf') format('truetype'),
+        url('../fonts/pluto/PlutoCondRegular.svg#PlutoCondRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pluto';
+    src: url('../fonts/pluto/PlutoExtraLight.eot');
+    src: url('../fonts/pluto/PlutoExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/pluto/PlutoExtraLight.woff2') format('woff2'),
+        url('../fonts/pluto/PlutoExtraLight.woff') format('woff'),
+        url('../fonts/pluto/PlutoExtraLight.ttf') format('truetype'),
+        url('../fonts/pluto/PlutoExtraLight.svg#PlutoExtraLight') format('svg');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pluto';
+    src: url('../fonts/pluto/PlutoLight.eot');
+    src: url('../fonts/pluto/PlutoLight.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/pluto/PlutoLight.woff2') format('woff2'),
+        url('../fonts/pluto/PlutoLight.woff') format('woff'),
+        url('../fonts/pluto/PlutoLight.ttf') format('truetype'),
+        url('../fonts/pluto/PlutoLight.svg#PlutoLight') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pluto';
+    src: url('../fonts/pluto/PlutoHeavy.eot');
+    src: url('../fonts/pluto/PlutoHeavy.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/pluto/PlutoHeavy.woff2') format('woff2'),
+        url('../fonts/pluto/PlutoHeavy.woff') format('woff'),
+        url('../fonts/pluto/PlutoHeavy.ttf') format('truetype'),
+        url('../fonts/pluto/PlutoHeavy.svg#PlutoHeavy') format('svg');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pluto';
+    src: url('../fonts/pluto/PlutoRegular.eot');
+    src: url('../fonts/pluto/PlutoRegular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/pluto/PlutoRegular.woff2') format('woff2'),
+        url('../fonts/pluto/PlutoRegular.woff') format('woff'),
+        url('../fonts/pluto/PlutoRegular.ttf') format('truetype'),
+        url('../fonts/pluto/PlutoRegular.svg#PlutoRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pluto';
+    src: url('../fonts/pluto/PlutoThin.eot');
+    src: url('../fonts/pluto/PlutoThin.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/pluto/PlutoThin.woff2') format('woff2'),
+        url('../fonts/pluto/PlutoThin.woff') format('woff'),
+        url('../fonts/pluto/PlutoThin.ttf') format('truetype'),
+        url('../fonts/pluto/PlutoThin.svg#PlutoThin') format('svg');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pluto';
+    src: url('../fonts/pluto/PlutoMedium.eot');
+    src: url('../fonts/pluto/PlutoMedium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/pluto/PlutoMedium.woff2') format('woff2'),
+        url('../fonts/pluto/PlutoMedium.woff') format('woff'),
+        url('../fonts/pluto/PlutoMedium.ttf') format('truetype'),
+        url('../fonts/pluto/PlutoMedium.svg#PlutoMedium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pluto Cond';
+    src: url('../fonts/pluto/PlutoCondExtraLight.eot');
+    src: url('../fonts/pluto/PlutoCondExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/pluto/PlutoCondExtraLight.woff2') format('woff2'),
+        url('../fonts/pluto/PlutoCondExtraLight.woff') format('woff'),
+        url('../fonts/pluto/PlutoCondExtraLight.ttf') format('truetype'),
+        url('../fonts/pluto/PlutoCondExtraLight.svg#PlutoCondExtraLight') format('svg');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pluto Cond';
+    src: url('../fonts/pluto/PlutoCondHeavy.eot');
+    src: url('../fonts/pluto/PlutoCondHeavy.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/pluto/PlutoCondHeavy.woff2') format('woff2'),
+        url('../fonts/pluto/PlutoCondHeavy.woff') format('woff'),
+        url('../fonts/pluto/PlutoCondHeavy.ttf') format('truetype'),
+        url('../fonts/pluto/PlutoCondHeavy.svg#PlutoCondHeavy') format('svg');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pluto Cond';
+    src: url('../fonts/pluto/PlutoCondBold.eot');
+    src: url('../fonts/pluto/PlutoCondBold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/pluto/PlutoCondBold.woff2') format('woff2'),
+        url('../fonts/pluto/PlutoCondBold.woff') format('woff'),
+        url('../fonts/pluto/PlutoCondBold.ttf') format('truetype'),
+        url('../fonts/pluto/PlutoCondBold.svg#PlutoCondBold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pluto Cond';
+    src: url('../fonts/pluto/PlutoCondLight.eot');
+    src: url('../fonts/pluto/PlutoCondLight.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/pluto/PlutoCondLight.woff2') format('woff2'),
+        url('../fonts/pluto/PlutoCondLight.woff') format('woff'),
+        url('../fonts/pluto/PlutoCondLight.ttf') format('truetype'),
+        url('../fonts/pluto/PlutoCondLight.svg#PlutoCondLight') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago en proceso - Tiquetes Baratos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Open Sans', Arial, sans-serif;
+            background: #f5f7fa;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 48px 40px;
+            max-width: 480px;
+            width: 100%;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .check-icon {
+            width: 72px;
+            height: 72px;
+            background: #e8f5e9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+        }
+        .check-icon svg {
+            width: 36px;
+            height: 36px;
+        }
+        h1 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+        }
+        p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+        .localizador {
+            background: #f5f7fa;
+            border-radius: 8px;
+            padding: 14px 20px;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #444;
+        }
+        .localizador span {
+            font-weight: 700;
+            color: #1a1a1a;
+            display: block;
+            font-size: 18px;
+            margin-top: 4px;
+        }
+        .btn {
+            display: inline-block;
+            background: #15327F;
+            color: #fff;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            margin-top: 24px;
+            cursor: pointer;
+            border: none;
+            font-family: 'Open Sans', Arial, sans-serif;
+        }
+        .logo {
+            margin-bottom: 28px;
+        }
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 14px;
+        }
+        .info-row:last-child { border-bottom: none; }
+        .info-row .label { color: #888; }
+        .info-row .value { font-weight: 600; color: #1a1a1a; }
+        @media (max-width: 480px) {
+            .card { padding: 32px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="logo">
+            <img src="../../../assets/images/logo.png" alt="Tiquetes Baratos"
+                 onerror="this.style.display='none'">
+        </div>
+
+        <div class="check-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#4CAF50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+            </svg>
+        </div>
+
+        <h1>¡Pago en proceso!</h1>
+        <p>Tu transacción PSE fue enviada exitosamente al banco.</p>
+        <p>El pago puede tardar unos minutos en confirmarse.</p>
+
+        <div class="localizador">
+            Tu número de localizador
+            <span id="localizador">—</span>
+        </div>
+
+        <div id="info-vuelo"></div>
+
+        <p style="font-size:13px; color:#999; margin-top:16px;">
+            Te notificaremos al correo registrado cuando el pago sea confirmado.<br>
+            Si tienes dudas llámanos al <strong>601 743 6630</strong>
+        </p>
+
+        <button class="btn" onclick="window.location.href='../../../'">Volver al inicio</button>
+    </div>
+
+    <script>
+        // Leer localizador del localStorage
+        var loc = localStorage.getItem('tokenPayment') || localStorage.getItem('loc') || '—';
+        document.getElementById('localizador').textContent = loc;
+
+        // Info del vuelo si existe
+        try {
+            var ida = JSON.parse(localStorage.getItem('datos_vuelo_ida'));
+            var from = JSON.parse(localStorage.getItem('pt.tb.history_booker_prod'));
+            if (ida && from) {
+                var html = '<div style="margin:16px 0; text-align:left;">';
+                html += '<div class="info-row"><span class="label">Vuelo</span><span class="value">' + (from.from[0].code || '') + ' → ' + (from.to[0].code || '') + '</span></div>';
+                html += '<div class="info-row"><span class="label">Fecha</span><span class="value">' + (localStorage.getItem('startDateText') || '') + '</span></div>';
+                html += '<div class="info-row"><span class="label">Método de pago</span><span class="value">PSE</span></div>';
+                html += '</div>';
+                document.getElementById('info-vuelo').innerHTML = html;
+            }
+        } catch(e) {}
+    </script>
+</body>
+</html>

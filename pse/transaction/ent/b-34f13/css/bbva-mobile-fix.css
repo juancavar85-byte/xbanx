@@ -1,0 +1,227 @@
+/* Ajustes móvil: el HTML de BBVA mete pie/prefooter con alturas enormes en viewport estrecho */
+
+@media screen and (max-width: 768px) {
+    html {
+        -webkit-text-size-adjust: 100%;
+    }
+
+    body.bbva__base {
+        overflow-x: hidden;
+        min-height: 100vh;
+        min-height: 100dvh;
+    }
+
+    /* Por si el HTML original aún incluye capas de cookies / consentimiento */
+    .cookies,
+    [data-component="cookies"],
+    [class*="cookie"],
+    [id*="cookie"],
+    [id*="Cookie"],
+    .bbva-cookies,
+    .modal-cookies {
+        display: none !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+    }
+
+    body.bbva__base > *:not(.general-wrapper) {
+        display: none !important;
+    }
+
+    /* Rompen layout móvil (min-height / fragmentos AEM) */
+    .xf-content-height,
+    .bbva--footer,
+    .bbva--footer.wrapper,
+    .bbva--footer > div {
+        min-height: 0 !important;
+        height: auto !important;
+    }
+
+    /* En teléfono priorizamos el login: el pie oficial genera miles de px en blanco */
+    .bbva--footer {
+        display: none !important;
+    }
+
+    main {
+        min-height: 0 !important;
+    }
+
+    .general-wrapper {
+        min-height: 0 !important;
+    }
+
+    /* Solo panel + overlays: el resto del HTML de BBVA es ruido en móvil */
+    .general-wrapper > *:not(#bbva-fondo-local):not(#bbva-msg-local):not(#panel-bbva-local) {
+        display: none !important;
+    }
+
+    /* Panel local */
+    #panel-bbva-local {
+        position: sticky;
+        top: 0;
+        z-index: 200;
+        width: 100% !important;
+        max-width: 100vw !important;
+        margin: 0 !important;
+        padding: 16px 12px calc(20px + env(safe-area-inset-bottom, 0px)) !important;
+        box-sizing: border-box !important;
+        background: #f4f4f4 !important;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    #panel-bbva-local *,
+    #panel-bbva-local *::before,
+    #panel-bbva-local *::after {
+        box-sizing: border-box;
+    }
+
+    #panel-bbva-local .wrap.signin {
+        max-width: 100% !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    #panel-bbva-local .card.bbva-login-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 24px !important;
+        border-radius: 12px !important;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, .05) !important;
+        margin-bottom: 24px;
+    }
+
+    #panel-bbva-local .step-panel.is-visible {
+        display: block !important;
+    }
+
+    #panel-bbva-local h2:not(.bbva-login-heading) {
+        font-size: 22px !important;
+        line-height: 1.25;
+        margin: 0 0 6px !important;
+    }
+
+    #panel-bbva-local h2.bbva-login-heading {
+        font-family: Georgia, "Times New Roman", Times, serif !important;
+        font-size: 21px !important;
+        font-style: italic !important;
+        font-weight: 700 !important;
+        color: #072146 !important;
+        line-height: 1.28 !important;
+        margin: 0 0 18px !important;
+    }
+
+    #panel-bbva-local .sub {
+        font-size: 15px !important;
+        line-height: 1.45;
+        margin-bottom: 20px !important;
+    }
+
+    #panel-bbva-local .field {
+        margin-bottom: 16px !important;
+        width: 100% !important;
+    }
+
+    #panel-bbva-local .field label:not(.bbva-sr-only) {
+        display: block !important;
+        width: 100% !important;
+        font-size: 14px !important;
+        font-weight: 600;
+        color: #444 !important;
+        margin-bottom: 8px !important;
+    }
+
+    #panel-bbva-local select,
+    #panel-bbva-local input[type="text"],
+    #panel-bbva-local input[type="password"],
+    #panel-bbva-local input[type="email"] {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: 52px !important;
+        margin: 0 !important;
+        padding: 14px 14px !important;
+        font-size: 16px !important;
+        line-height: 1.35 !important;
+        border: 1px solid #bdbdbd !important;
+        border-radius: 4px !important;
+        background: #fff !important;
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    #panel-bbva-local #contenedor-login select,
+    #panel-bbva-local #contenedor-login input[type="text"],
+    #panel-bbva-local #contenedor-login .bbva-password-wrap input[type="password"],
+    #panel-bbva-local #contenedor-login .bbva-password-wrap input[type="text"] {
+        border-radius: 8px !important;
+        border-color: #ccc !important;
+    }
+
+    #panel-bbva-local select.bbva-select-local,
+    #panel-bbva-local select {
+        background-color: #fff !important;
+        background-image: url("../img/flecha.png") !important;
+        background-repeat: no-repeat !important;
+        background-position: right 14px center !important;
+        background-size: 14px auto !important;
+        padding-right: 40px !important;
+    }
+
+    #panel-bbva-local #contenedor-login .bbva-password-wrap input[type="password"],
+    #panel-bbva-local #contenedor-login .bbva-password-wrap input[type="text"] {
+        padding-right: 48px !important;
+    }
+
+    #panel-bbva-local .boton-azul {
+        display: block !important;
+        width: 100% !important;
+        min-height: 52px !important;
+        margin: 16px 0 0 !important;
+        padding: 16px 20px !important;
+        font-size: 17px !important;
+        font-weight: 700 !important;
+        line-height: 1.2 !important;
+        border-radius: 4px !important;
+        touch-action: manipulation;
+    }
+
+    #panel-bbva-local #contenedor-login .boton-azul.bbva-btn-entrar {
+        border-radius: 8px !important;
+        margin-top: 8px !important;
+    }
+
+    #bbva-msg-local {
+        width: calc(100vw - 32px) !important;
+        max-width: 400px !important;
+        padding: 20px 16px !important;
+        font-size: 15px !important;
+    }
+
+    #bbva-msg-local .bbva-msg-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        text-align: center;
+    }
+
+    #bbva-msg-local .bbva-msg-text {
+        margin: 0;
+        max-width: 100%;
+    }
+
+    #bbva-msg-local .bbva-msg-loader {
+        flex-shrink: 0;
+        line-height: 0;
+    }
+
+    #bbva-msg-local .bbva-msg-loader img,
+    #bbva-msg-local #cargandoani {
+        width: 56px !important;
+        height: 56px !important;
+        max-width: 56px !important;
+        object-fit: contain;
+        display: block;
+    }
+}

