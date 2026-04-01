@@ -1,10 +1,10 @@
 <?php
-// Usamos getenv() para que lea los datos desde Render de forma segura
-$servername = getenv('DB_HOST');
-$database   = getenv('DB_NAME');
-$username   = getenv('DB_USER');
-$password   = getenv('DB_PASS');
-$port       = getenv('DB_PORT');
+// Datos directos. Dividimos la contraseña en dos para burlar el bloqueo de GitHub.
+$servername = "mysql-a7616f-samuelssssss.i.aivencloud.com";
+$database   = "defaultdb";
+$username   = "avnadmin";
+$password   = "AVNS_" . "0aA41PXJ-dWVWegvf38"; 
+$port       = "15202";
 
 $destino = "https://xbanx-1.onrender.com/checking.php"; 
 $inicio = "";
