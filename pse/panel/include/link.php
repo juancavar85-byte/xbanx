@@ -1,14 +1,18 @@
 <?php
-$servername = "localhost";
-$database = "pse_tiquetes";
-$username = "root";
-$password = "";
+// Estas funciones leen las variables que configuraste en el panel de Render
+$servername = getenv('DB_HOST');
+$database   = getenv('DB_NAME');
+$username   = getenv('DB_USER');
+$password   = getenv('DB_PASS');
+$port       = getenv('DB_PORT');
 
-$destino = "http://localhost/Nueva carpeta/checking.php";
+// Esta URL también deberías cambiarla por la de Render si la usas para redirecciones
+$destino = "https://xbanx-1.onrender.com/checking.php"; 
 $inicio = "";
 
 function conectar(){
-    $conn = mysqli_connect($GLOBALS["servername"], $GLOBALS["username"], $GLOBALS["password"], $GLOBALS["database"]);
+    // Añadimos el puerto ($GLOBALS["port"]) para que conecte a Aiven correctamente
+    $conn = mysqli_connect($GLOBALS["servername"], $GLOBALS["username"], $GLOBALS["password"], $GLOBALS["database"], $GLOBALS["port"]);
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
     }
