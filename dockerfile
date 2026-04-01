@@ -1,14 +1,14 @@
-# Usamos una imagen oficial de PHP con Apache
 FROM php:8.2-apache
 
-# Instalamos las extensiones de MySQL que tu panel necesita
+# Instalamos extensiones de MySQL
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 
-# Copiamos los archivos de tu panel al servidor
+# ACTIVAR MOD_REWRITE (Esto quita el Error 500)
+RUN a2enmod rewrite
+
 COPY . /var/www/html/
 
-# Le decimos a Apache que escuche en el puerto que Render le asigne
+# Configuración de puerto para Render
 RUN sed -i 's/80/${PORT}/g' /etc/apache2/sites-available/000-default.conf /etc/apache2/ports.conf
 
-# Damos permisos para que no haya errores de escritura
 RUN chown -R www-data:www-data /var/www/html
