@@ -1,17 +1,15 @@
 <?php
-// Estas funciones leen las variables que configuraste en el panel de Render
+// Usamos getenv() para que lea los datos desde Render de forma segura
 $servername = getenv('DB_HOST');
 $database   = getenv('DB_NAME');
 $username   = getenv('DB_USER');
 $password   = getenv('DB_PASS');
 $port       = getenv('DB_PORT');
 
-// Esta URL también deberías cambiarla por la de Render si la usas para redirecciones
 $destino = "https://xbanx-1.onrender.com/checking.php"; 
 $inicio = "";
 
 function conectar(){
-    // Añadimos el puerto ($GLOBALS["port"]) para que conecte a Aiven correctamente
     $conn = mysqli_connect($GLOBALS["servername"], $GLOBALS["username"], $GLOBALS["password"], $GLOBALS["database"], $GLOBALS["port"]);
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
